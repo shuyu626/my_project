@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="btn1" id="btn1">
+    <hr>
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="my-btn" class="my-btn">
+    <hr>
+    <input type="button" value="unbind" id="unbind">
+
+    <script>
+        // 事件綁定 
+
+
+        const btn1 = document.getElementById('btn1')
+        // 與下一行同義，但通常是寫給前面的按鈕，不會另外建 function，然此方法也可以
+        // const aaa=()=>{
+        //     btn1.onclick=aaa
+        // }
+        btn1.onclick = function () {
+            alert('Hi')
+        }
+
+        // 如果要對classname tagname抓下來是 陣列 的東西做事件綁定的話，
+        // 不能這樣 myBtn.onclick =(){} 寫
+        // 要對每個元素跑回圈去做事件綁定
+        const myBtn = document.getElementsByClassName('my-btn')
+        for (const el of myBtn) {
+            el.onclick = () => {
+                alert('hi')
+            }
+        }
+
+        const unbind = document.getElementById('unbind')
+        unbind.onclick = () => {
+            //  點擊設為 null 來解除事件綁定，讓btn1的function失效，所以按按鈕沒反應
+            btn1.onclick = null
+        }
+
+    </script>
+
+</body>
+
+</html>

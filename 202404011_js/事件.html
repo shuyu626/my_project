@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 行內事件 -->
+
+    <!-- 外面雙引號，裡面就不要雙引號，onclick是js的語法，該雙引號要雙引號 -->
+    <!-- onclick 點擊的時候執行 -->
+    <input type="button" value="按鈕1" onclick="alert('ABCD')">
+    <!-- this 代表點到這個標籤 -->
+    <!-- this.value代表這個標籤的value屬性， 點擊按鈕，value值會往上加 -->
+    <input type="button" value="0" onclick="this.value++">
+
+    <!-- onclick 後執行 function -->
+    <input type="button" value="按鈕1" onclick="onBtnClick()">
+
+    <!-- 代入參數 -->
+    <input type="button" value="按鈕1" onclick="onBtnClick2('清晰降低。')">
+    <input type="button" value="按鈕1" onclick="onBtnClick3(this,'清晰降低。')">
+</body>
+<script>
+    const onBtnClick = () => {
+        alert('點了按鈕')
+    }
+
+    const onBtnClick2 = (text) => {
+        alert(text)
+    }
+
+    const onBtnClick3 = (el, text) => {
+        el.value = text
+        alert(text)
+    }
+</script>
+
+</html>

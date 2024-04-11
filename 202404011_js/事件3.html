@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 事件監聽 -->
+
+
+
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="my-btn" class="my-btn">
+    <input type="button" value="unbind" id="unbind">
+    <script>
+        const hi = () => {
+            alert('Hi')
+        }
+
+        const myBtn = document.getElementsByClassName('my-btn')
+        for (const el of myBtn) { // 這裡 el 代表 element
+            // 第一個事件放監聽的名稱 ; 第二個參數放function，可另外寫，記得()問題
+            // 這邊是事件所以用click
+            // 此種方法無法解除事件監聽器
+            // el.addEventListener('click', () => {
+            //     alert('Hi')
+            // })
+
+            // 事件種類,解除的function(要跟加上去的function一模一樣)
+            el.addEventListener('click', hi)
+        }
+
+        const unbind = document.getElementById('unbind')
+        unbind.addEventListener('click', () => {
+            for (const el of myBtn) {
+                el.removeEventListener('click', hi)
+            }
+        })
+    </script>
+</body>
+
+</html>

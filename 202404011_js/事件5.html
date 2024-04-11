@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div {
+            width: 100px;
+            height: 100px;
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 不是只有按鈕才有點擊事件，一般div也有 -->
+    <div id="div"></div>
+    <p id="key"></p>
+    <!-- min max 最大最小值 ; step 拖拉加減多少 ; value 初始值-->
+    <input type="range" id="range" min="0" max="100" step="10" value="0">
+    <span id="range-value">0</span>
+    <br>
+    <input type="text" id="input-email">
+
+
+
+    <script>
+        const div = document.getElementById('div')
+        // div.onclick = (event) =>{}
+        div.addEventListener('click', (event) => {
+            console.log(event)
+            // event.target 事件的目標
+            console.log(event.target)
+        })
+
+
+        // 鍵盤事件只能對document做偵測
+        const key = document.getElementById('key')
+        // 只能在 document 偵測 keydown
+        document.addEventListener('keydown', (event) => {
+            console.log(event)
+            //將事件對象中的 key 屬性的值設置為 key 元素的文字內容。換句話說，當按下鍵盤時，這行程式碼將所按下的鍵的名稱顯示在 key 元素中
+            key.innerText = event.key
+        })
+
+
+
+        const range = document.getElementById('range')
+        const rangeValue = document.getElementById('range-value')
+        // 邊拉邊觸發input，邊拉邊有反應
+        range.addEventListener('input', () => {
+            console.log('range input')
+            rangeValue.innerText = range.value
+        })
+        // 拖拉完後，值改變才會觸發 change
+        // 拉完才有反應，拉完在同個位置不會有change反應
+        range.addEventListener('change', () => {
+            console.log('range change')
+        })
+
+        const inputEmail = document.getElementById('input-email')
+        inputEmail.addEventListener('focus', () => {
+            console.log('focus')  // 點擊欄位時觸發
+        })
+        inputEmail.addEventListener('blur', () => {
+            console.log('blur')   // 點擊欄位以外時觸發
+        })
+        inputEmail.addEventListener('change', () => {
+            console.log('change') // 打完字按enter時觸發
+        })
+        inputEmail.addEventListener('input', () => {
+            console.log('input')  // 邊打字邊觸發
+            const valid = inputEmail.value.includes('@')
+            if (valid) {
+                inputEmail.style.border = '5px solid green'  // 有打@的話邊框是綠的
+            } else {
+                inputEmail.style.border = '5px solid red'   // 沒有打@的話邊框是紅的
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            appearance: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="剪刀" id="scissors">
+    <input type="button" value="石頭" id="rock">
+    <input type="button" value="布" id="paper">
+    <hr>
+    <span>贏:<span id="win">0</span></span>
+    <span>輸:<span id="lose">0</span></span>
+    <span>平手:<span id="tie">0</span></span>
+    <ul>
+        <li id="text"></li>
+    </ul>
+
+    <!-- 老師解 -->
+    <!-- <input type="button" value="剪刀">
+    <input type="button" value="石頭">
+    <input type="button" value="布">
+    <hr>
+    <p>
+        贏: <span id="win">0</span>
+        輸: <span id="lose">0</span>
+        平手: <span id="draw">0</span>
+    </p>
+    <ul id="list"></ul> -->
+
+
+
+    <!-- 1.點擊事件 2.知道使用者按的是什麼 3.電腦隨機剪刀石頭布三選一 4.誰贏誰輸alert 5.確定 ul li寫在上面 -->
+
+    <script>
+        // 老師解
+        // const buttons = document.querySelectorAll('input')
+        // const win = document.getElementById('win')
+        // const lose = document.getElementById('lose')
+        // const draw = document.getElementById('draw')
+        // const list = document.getElementById('list')
+
+        // for (const el of buttons) {
+        //     el.addEventListener('click', () => {
+        //         const player = el.value
+
+        //         const options = ['剪刀', '石頭', '布']
+        //         const computer = options[Math.round(Math.random() * 2)]
+
+        //         let text = `你出${player}，電腦出${computer}，`
+
+        //         if (player === computer) {
+        //             text += '平手'
+        //             draw.innerText++
+        //         } else if (
+        //             (player === '剪刀' && computer === '布') ||
+        //             (player === '石頭' && computer === '剪刀') ||
+        //             (player === '布' && computer === '石頭')
+        //         ) {
+        //             text += '贏'
+        //             win.innerText++
+        //         } else {
+        //             text += '輸'
+        //             lose.innerText++
+        //         }
+
+        //         alert(text)
+        //         list.innerHTML += `<li>${text}</li>`
+        //     })
+        // }
+
+        // 使用者出拳
+        let user = ''
+        const r = document.getElementById('rock')
+        const s = document.getElementById('scissors')
+        const p = document.getElementById('paper')
+        r.addEventListener('click', () => {
+            user = '石頭'
+            // console.log('石頭');
+            compare(user)
+        });
+        s.addEventListener('click', () => {
+            user = '剪刀'
+            // console.log('剪刀');
+            compare(user)
+        });
+        p.addEventListener('click', () => {
+            user = '布'
+            // console.log('布');
+            compare(user)
+        });
+
+        // 電腦出拳
+        const random = ['剪刀', '石頭', '布']
+        let computer = random[Math.floor(Math.random() * 3)] // 陣列隨機抽一個出來
+        // console.log(computer)
+
+        const text = document.getElementById('text')
+        const w = document.getElementById('win') // 贏的次數
+        const l = document.getElementById('lose') // 輸的次數
+        const t = document.getElementById('tie') // 平手的次數
+        let win = 0
+        let tie = 0
+        let lose = 0
+        let result = 0
+        let compare = (user1) => {
+            if (user1 === computer) {
+                tie++
+                result = '平手'
+            } else if ((user1 === '剪刀' && computer === '布') ||
+                (user1 === '石頭' && computer === '剪刀') ||
+                (user1 === '布' && computer === '石頭')) {
+                win++
+                result = '贏'
+            } else {
+                lose++
+                result = '輸'
+            }
+            alert(`你出${user1}，電腦出${computer}，${result}`)
+            text.innerText += (`你出${user1}，電腦出${computer}，${result}`)
+            t.innerText = (tie)
+            w.innerText = (win)
+            l.innerText = (lose)
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

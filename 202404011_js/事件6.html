@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #out {
+            width: 300px;
+            height: 300px;
+            background: blue;
+            /* table-cell是td的預設顯示方式 div變td */
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        #in {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            margin: auto;
+        }
+    </style>
+</head>
+
+
+<body>
+    <a href="http://x.com" id="link">X</a>
+    <div id="out">
+        <div id="in"></div>
+    </div>
+
+    <script>
+        // 預設動作
+        const link = document.getElementById('link')
+        link.addEventListener('click', event => {
+            // .preventDefault() 阻止預設動作的發生
+            event.preventDefault() // a標籤不會跳頁
+        })
+
+
+        // 事件冒泡
+        // 內外都有事件時，觸發事件會由內往外傳遞?
+        // .stopPropagation() 停止事件的冒泡動作
+        const divOut = document.getElementById('out')
+        const divIn = document.getElementById('in')
+        divOut.addEventListener('click', (event) => {
+            console.log('out', event.target)
+        })
+        divIn.addEventListener('click', (event) => {
+            //in在out裡，若兩個都有click事件，則點擊in時會一層一層由內往外傳遞，致同時點到out in 事件，目標則都是in，因為點到的目標是in
+            console.log('in', event.target)
+            event.stopPropagation() // 停止事件的冒泡動作，點哪個就是哪個
+        })
+    </script>
+</body>
+
+</html>
