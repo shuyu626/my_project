@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // jsdoc : 寫code的時候編輯器會出現相應的提示
+
+        /**
+         * 早安
+         */
+        const GoodMorning = () => { }
+        GoodMorning()
+
+        //  參數parameter
+
+        /**
+         * 早安
+         * @param time 時間  
+         * @param item 物品
+         */
+        const GoodMorning2 = (time, item) => { }
+        GoodMorning2('aaa', 'bbb')
+
+
+        // {資料型態}
+        /**
+         * 早安
+         * @param time {string} 時間  
+         * @param item {string} 物品
+         */
+        const GoodMorning3 = (time, item) => { }
+        GoodMorning3('aaa', 'bbb')
+
+
+        // :表示型態，void沒有任何回傳的function
+        // [有預設值時]
+        /**
+         * 早安
+         * @param [time=早上] {string} 時間  
+         * @param [item=冰淇淋] {string} 物品
+         * @returns {string} 組合完的訊息
+         */
+        const GoodMorning4 = (time = '早上', item = '冰淇淋') => { }
+        GoodMorning4()
+
+    </script>
+
+</body>
+
+</html>

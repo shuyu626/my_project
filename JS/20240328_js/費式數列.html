@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 結果 = 0 1 1 2 3 5 8
+        // n   = 0 1 2 3 4 5 6
+        const fib = (n) => {
+            if (n < 2) {
+                return n
+            } else {
+                return fib(n - 1) + fib(n - 2)
+            }
+        }
+        // fib(3) = fib(3 - 1) + fib(3 - 2) = fib(2) + fib(1) = 1 + 1 = 2
+        // fib(2) = fib(2 - 1) + fib(2 - 2) = fib(1) + fib(0) = 1 + 0 = 1
+        // fib(1) = 1
+        // fib(0) = 0
+        console.log(fib(3))
+
+        // 輾轉相除法
+        const gcd = (a, b) => {
+            if (a % b === 0) {
+                return b
+            } else {
+                return gcd(b, a % b)
+            }
+        }
+        // gcd(2002, 847) => a % b = 2002 % 847 = 308 => 308 != 0 => gcd(847, 308)
+        // gcd(847, 308) => a % b = 847 % 308 = 231 => 231 != 0 => gcd(308,231)
+        // gcd(308, 231) => a % b =308 % 231 = 77 => 77!= 0 => gcd(231, 77)
+        // gcd(231, 77) => a % b = 231 % 77 = 0 => 77
+        // 輾轉相除法說明 http://www.youtube.com/watch?v=kCooBR9xwUE
+        console.log(gcd(2002, 847))
+
+
+    </script>
+</body>
+
+</html>

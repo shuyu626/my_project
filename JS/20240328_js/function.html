@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function GoodMoring() {
+        //     document.write(`早上好，現在我有冰淇淋`)
+        // }
+        // GoodMoring()
+        // 上下兩者相同，下方較少使用
+        // const GoodMorning = function{
+        //     document.write(`早上好，現在我有冰淇淋`)
+        // }
+        // GoodMoring()
+
+
+        // function GoodMorning(time, item) {
+        //     document.write(`${time}好，現在我有${item}`)
+        // }
+        // GoodMorning('早上', '冰淇淋')
+        // document.write('<br>')
+        // GoodMorning('中午', '桂格超大便當')
+        // document.write('<br>')
+        // GoodMorning('晚上') // 若無預設item值，則會顯示 '晚上','undifined'
+
+        // function GoodMorning(time = '早上', item = '冰淇淋') {
+        //     console.log(arguments) // arguments 取得傳入的所有參數
+        //     document.write(`${time}好，現在我有${item}`)
+        // }
+        // GoodMorning('晚上')
+        // GoodMorning(undefined, '雞排')
+
+
+        // function GoodMorning(time = '早上', item = '冰淇淋') {
+        //     return `${time}好，現在我有${item}` // return後面不一定加東西，類似break的概念
+        //     // return 後的東西都不會執行
+        //     console.log(123)
+        // }
+
+        const GoodMorning = (time = '早上', item = '冰淇淋') => {
+            return `${time}好，現在我有${item}`
+        }
+        const text = GoodMorning()
+        console.log(text)
+        document.write(`<h1>${GoodMorning('中午', '桂格超大便當')}</h1>`)
+
+
+        // 當參數只有一個的時候，可以省略( )
+        const isEven = number => {
+            return number % 2 === 0
+        }
+
+        // 如果 function 內只有一行 return ，可以省略{ }
+        const isOdd = number => number % 2 === 1
+        // 如果省略 {} 但是要 return 物件的話，用()框起來
+        const obj = () => ({ aaa: 111, bbb: 222 })
+        console.log(isOdd(2))
+        console.log(obj())
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        // 從n開始數
+        const calculate = (n, m) => {
+            let sum = 0 // 總和
+            let count = 0 // 次數
+            while (sum <= m) { // 迴圈執行條件 總和<=m
+                sum += n // 總和 + 目前數字
+                count++ // 次數 + 1
+                n++ // 數字 + 1
+            } return count
+        }
+        const number1 = parseInt(prompt('n'))
+        const number2 = parseInt(prompt('m'))
+        console.log(calculate(number1, number2))
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 錯誤 : Cannot access 'text' before initialization
+        // console.log(text)
+
+
+        // 錯誤 : Cannot access 'text' before initialization
+        // console.log(text)
+        // const text = 'abc'
+
+        // 變數的提升
+        // 先於記憶體裡預留變數空間，下面再把內容補進去
+        console.log(text) // undefined
+        var text = 'abc'  // 用var做宣告，前面就是undifined
+
+        // 錯誤 ReferenceError: text is not defined
+        // console.log(text)
+        // text = 'abc' // 給值，不是變數宣告
+
+
+        // text = 'abc'
+        // console.log(text) // abc
+
+
+        // function declaration 會提升
+        hi('AAA')
+        function hi(name) {
+            console.log('hi,' + name)  //hi,AAA
+        }
+
+        // function expression
+        console.log(hi2) // undefined
+        // Uncaught TyperError: hi2 is not a function
+        // hi2('BBB')
+        var hi2 = function (name) {
+            console.log('hi,' + name)
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
