@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numbers = [100, 200, 300, 100]
+        // .includes(搜尋內容)
+        // 尋找陣列是否有東西符合搜尋內容，回傳boolen
+        console.log(numbers.includes(200)) // true
+        // .indexOf(搜尋內容，從第幾個開始往後)
+        // 尋找陣列是否有東西符合搜尋內容，回傳第一個符合的索引，-1代表找不到(從前往後找)
+        console.log(numbers.indexOf(100, 2))  // 3
+        // .lastIndexOf(搜尋內容，從第幾個開始往前)
+        // 尋找陣列是否有東西符合搜尋內容，回傳最後一個符合的索引，-1代表找不到(從後往前找)
+        // 第二個參數是選填，預設是　array.length - 1
+        console.log(numbers.lastIndexOf(100, 2))  // 0
+
+        const arr = [{ a: 1 }]
+        console.log(arr.includes({ a: 1 }))  //false 又建立新物件  
+        const obj = { b: 2 }
+        const arr2 = [obj]
+        console.log(arr2.includes(obj))     //true
+
+
+        const numbers2 = [100, 200, 300, 400, 500]
+        // .includes(搜尋內容)
+        // .some(function)
+        // 迴圈陣列，每個東西都執行提供的 function
+        // 判斷陣列有沒有東西執行 function 後 return true
+        // 回傳 boolean
+        // 一個東西跑完東西是true，就是true 
+        const some = numbers2.some((value) => {
+            return value > 300
+        })
+        // const some = numbers2.some(value => value > 300) 
+        console.log('some', some)   // ture
+
+        // .every(function)
+        // 迴圈陣列，每個東西都執行提供的 function
+        // 判斷陣列所有東西執行 function 後 return true
+        // 回傳 boolean
+        const every = numbers2.every((value) => {
+            return value > 300
+        })
+        console.log('every', every)   // false 不是每個都> 300
+
+
+        // .find(function)
+        // 迴圈陣列，每個東西都執行提供的 function
+        // 回傳第一個執行 function 結果為 true 的值
+        const find = numbers2.find((value) => {
+            return value > 300
+        })
+        console.log('find', find)  // 第一個 > 300的值 // 400
+
+
+        // .findLast(function)
+        // 迴圈陣列，每個東西都執行提供的 function
+        // 回傳最後一個執行 function 結果為 true 的值
+        const findLast = numbers2.findLast((value) => {
+            return value > 300
+        })
+        console.log('findLast', findLast)  // 最後一個 > 300的值 // 500
+
+
+        // .findIndex(function)
+        // 迴圈陣列，每個東西都執行提供的 function
+        // 回傳第一個執行 function 結果為 true 的索引
+        const findIndex = numbers2.findIndex((value) => {
+            return value > 300
+        })
+        console.log('findIndex', findIndex) // 第一個 > 300的索引 // 3
+
+
+        // .findLastIndex(function)
+        // 迴圈陣列，每個東西都執行提供的 function
+        // 回傳最後一個執行 function 結果為 true 的索引
+        const findLastIndex = numbers2.findLastIndex((value) => {
+            return value > 300
+        })
+        console.log('findLastIndex', findLastIndex) // 最後一個 > 300的索引 // 4
+
+
+        // .filter(function)
+        // 迴圈陣列，每個東西都執行提供的 function
+        // 將所有執行結果為 true 的值產生為新陣列，不會動到原陣列
+        const filter = numbers2.filter((value) => {
+            return value > 300
+        })
+        console.log('filter', filter, numbers2)  // 不會動到原本的陣列
+
+
+
+
+    </script>
+</body>
+
+</html>

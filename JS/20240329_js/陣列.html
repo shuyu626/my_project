@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numbers = [1, 2, 3, 4, 5]
+
+        // numbers.forEach(function () {
+        // })
+
+        // const each = () => { }
+        // numbers.forEach(each) // (each後不用再加())
+
+
+        // .forEach(function)
+        // function 有三個參數
+        // 迴圈陣列，每個東西都執行提供的 function
+        // value = 現在在執行 function 的東西值
+        // index = 現在在執行 function 的東西索引
+        // array = 陣列本身
+        // numbers每個東西，都去執行下列function值、索引、陣列本身
+        numbers.forEach((value, index, array) => {  // 只用一次的function
+            // console.log(value, index, array)
+            // value *= 10  沒辦法改到陣列的值，只能透過索引去修改值
+
+            array[index] *= 2
+            numbers[index] *= 2
+        })
+        console.log(numbers)
+
+        // .join(連接文字)
+        // 將陣列用連接文字串成文字
+        console.log(numbers.join('-'))  // 4-8-12-16-20
+
+        const fruits = ['蘋果', '香蕉', '西瓜']
+
+        // ★★★.push(資料)★★★
+        // 把資料放進陣列後面
+        // fruits.push('草莓')
+        // fruits.push('芭樂', '柳丁')
+        const fruits2 = ['草莓', '芭樂', '柳丁']
+        fruits.push(...fruits2)  //   ['蘋果', '香蕉', '西瓜' , '草莓', '芭樂', '柳丁']
+        console.log(fruits)
+
+        // .unshift(資料)
+        // 把資料放在陣列前面
+        // fruits.unshift('橘子')
+        // fruits.unshift('葡萄', '藍莓')
+        // console.log(fruits)
+        const fruits3 = ['橘子', '葡萄', '藍莓']
+        fruits.unshift(...fruits3)  // ...攤平為各個參數
+        console.log(fruits) // ['橘子', '葡萄', '藍莓', '葡萄', '藍莓']
+
+        // .pop()
+        // 移除最後一個並回傳
+        const lastFruit = fruits.pop()
+        console.log(lastFruit, fruits)
+        // .shift()
+        // 移除第一個並回傳
+        const firstFruit = fruits.shift()
+        console.log(firstFruit, fruits)
+
+        const phones = ['Nothing', 'iPhone', 'Samsung']
+        // .splice(開始位置,刪除數量, 插入資料1, 插入資料2...)
+        // 刪除陣列索引並加入值，新值可以不加
+        // phones.splice(1, 2, 'Google', 'Xiaomi')
+        console.log(phones)
+
+        const phones2 = ['Google', 'Xiaomi', 'SONY', 'Oppo', 'ASUS']
+        phones.splice(1, 2, ...phones2)
+        console.log(phones)
+        // 陣列攤開成各個參數?
+
+        // .slice(開始位置，結束位置)
+        // 陣列切割產生新陣列，不會修改到原有陣列
+        const newPhones = phones.slice(1, 5)
+        console.log(newPhones, phones)
+
+        // .concat(陣列)
+        // 連接陣列，不會修改到原有陣列
+        // 可以拿來做陣列的複製
+        const array = phones.concat(fruits, numbers)
+        console.log(array, phones)
+
+
+        // .reverse()
+        // 顛倒陣列
+        array.reverse()
+        console.log(array)
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
