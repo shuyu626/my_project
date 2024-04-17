@@ -42,7 +42,8 @@
     </div>
     <script>
         const observer = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) {  //當偵測到倒數第二個進入頁面時，就再加20個li
+            //entries[0]是第一個被觸發的元素，即 document.querySelector('#container li:nth-last-child(2)')
+            if (entries[0].isIntersecting) {  //當偵測到倒數第二個進入頁面時，就再加20個li 
                 for (let i = 0; i < 20; i++) {
                     document.querySelector('#container ul').innerHTML += `<li>通訊警察隱藏位置，反而改造原本多個等待走了歌手我現在，三人地球態度我只女子痛苦她的是我太陽，觀念放在遺憾主角，不再透明有時之一協議無法裝修討論區點頭執行時間玩家，出現在將會整合讓她現有實驗利潤之類軍。</li >`
                 }
@@ -51,6 +52,7 @@
             }
         })
         observer.observe(document.querySelector('#container li:nth-last-child(2)'))
+        // 若此處又在新增一個監視的元素，則代表entries[1]
     </script>
 </body>
 

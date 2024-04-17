@@ -69,7 +69,7 @@
             const minute = date.getMinutes()
             const second = date.getSeconds()
             // 360 / 12 = 30 一小時的角度
-            // 針在0的時候是橫的，所以要加 90 deg 先讓它變直的
+            // 針在0的時候是橫的，然期待0的時候是指到12點，所以要加 90 deg 先讓它變直的
             elHour.style.transform = `rotate(${hour * 30 + 90}deg)`
             // 360 / 60 =6 一分鐘/秒鐘的角度
             elMinute.style.transform = `rotate(${minute * 6 + 90}deg)`

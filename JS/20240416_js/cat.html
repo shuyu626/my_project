@@ -77,23 +77,26 @@
             // 重置遊戲
             time = 0
             textTime.innerText = 0
-            audioCat.volume = 0
+            audioCat.volume = 0  // .volume用於設置或獲取音量大小，屬性值從 0 (靜音) 到 1 (最大音量)
             // 隨機擺放貓
-            imgCat.style.opacity = 0
-            imgCat.style.top = Math.round(Math.random() * 80) + '%'
-            imgCat.style.left = Math.round(Math.random() * 80) + '%'
+            imgCat.style.opacity = 0 //隱藏貓貓
+            imgCat.style.top = Math.round(Math.random() * 80) + '%' // top 0-80%隨機放
+            imgCat.style.left = Math.round(Math.random() * 80) + '%' // left 0-80%隨機放
             CatPosition.x = imgCat.offsetLeft + (imgCat.clientWidth / 2)
             CatPosition.y = imgCat.offsetTop + (imgCat.clientHeight / 2)
+
             // 開始計時
-            timer = setInterval(() => {
+            // timer 是用來存儲 setInterval 函式返回的計時器 ID
+            timer = setInterval(() => { //箭頭函式，因為timer前面已經宣告過了，所以直接寫
                 time++
-                textTime.innerText = time / 100
+                textTime.innerText = time / 100 //每10毫秒執行一次
                 if (time % 300 === 0) { // 3秒
                     audioCat.play()
                 }
             }, 10)
         })
 
+        // 滑鼠在 divGame 上移動的時候會觸發
         divGame.addEventListener('mousemove', (event) => {
             // 取得滑鼠相對於 divGame 的座標
             const mousePosition = {
@@ -105,19 +108,19 @@
             // 如果滑鼠在貓上面
             // event.offsetX 是滑鼠相對於貓的位置
             // 所以直接當作在貓上面
-            if (event.target === imgCat) {
+            if (event.target === imgCat) { //目標在imgCat上的時候，直接當成在貓上面
                 mousePosition.x = CatPosition.x
                 mousePosition.y = CatPosition.y
             }
             // console.log(mousePosition)
 
-            // 計算滑鼠狸貓多遠
+            // 計算滑鼠離貓多遠
             const distance = Math.sqrt(
                 Math.pow(mousePosition.x - CatPosition.x, 2) +
                 Math.pow(mousePosition.y - CatPosition.y, 2)
             )
             // console.log(distance)
-            audioCat.volume = 1 - distance / divGameMaxDistance //越近要數字越大
+            audioCat.volume = 1 - distance / divGameMaxDistance //靠貓越近要數字越大
             // console.log(1 - distance / divGameMaxDistance)
         })
         imgCat.addEventListener('click', () => {
