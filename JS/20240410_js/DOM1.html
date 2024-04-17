@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text-blue {
+            color: blue;
+        }
+
+        .text-blue::before {
+            content: "藍色";
+            color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">標題</h1>
+    <h2>
+        <i>111</i>
+    </h2>
+    <h2>
+        <i>222</i>
+    </h2>
+    <h3 class="text-red">aaa</h3>
+    <h3 class="text-red">aaa</h3>
+    <h3 class="text-red">aaa</h3>
+    <h3 class="text-center">aaa</h3>
+    <h3 class="text-center">aaa</h3>
+    <h3 class="text-center">aaa</h3>
+    <h3 class="text-blue">aaa</h3>
+    <h3 class="text-blue">aaa</h3>
+    <h3 class="text-blue">aaa</h3>
+
+    <script>
+        // 抓到的東西放在const，避免不小心改到值
+        // .getElementById 用 id 抓元素 ，常用，注意大小寫
+        const title = document.getElementById('title')
+        // .innerText 元素內的文字
+        console.log(title.innerText)
+        // 用 = 改掉 title 裡的文字
+        title.innerText = 'ABCD'
+
+        // .getElementsByTagName( ) 用標籤名稱抓元素，注意有s，代表抓到的是陣列
+        const h2 = document.getElementsByTagName('h2')
+        // 會連縮排的空白也一起算，縮排的空格也算是文字的node節點
+        // 取得陣列中第0個索引
+        console.log(h2[0].innerHTML)
+
+        h2[0].innerHTML = '<del>AAA</del>'
+
+        for (let i = 0; i < h2.length; i++) {
+            console.log(i, h2[i].innerHTML.trim()) // trim() 空格都被移除了，只留下了中間的內容
+        }      //0 '<del>AAA</del>'   1 '<i>222</i>'
+
+        // 可用for in和 for of，不能用 forEach，因為他是HTMLCollection，不是一般的陣列(可以console.log(h2)F12來看)
+        // h2.forEach(element => {
+        //     console.log(element.innerHTML.trim())
+        // });
+
+        // getElementsByClassName( ) 用標籤名稱抓元素
+        const red = document.getElementsByClassName('text-red')
+        for (const element of red) {
+            // 使用 .style.樣式 修改行內樣式
+            element.style.color = 'red'
+            console.log(element.style.color)
+        }
+
+
+        // .querySelector() 用選擇器抓符合的第一個
+        // .querySelecrotAll() 用選擇器抓符合的全部
+        const center = document.querySelectorAll('.text-center')
+        for (const element of center) {
+            // 以下為兩種不同寫法(同義)
+            // 加[' ']或改駝峰式命名(避免-被當成運算子減號)
+            element.style.textAlign = 'center'
+            element.style['text-align'] = 'center'
+        }
+
+
+        const blue = document.querySelectorAll('.text-blue')
+        for (const element of blue) {
+            // .style 取行內樣式 
+            console.log(element.style.color) // 取得三個空元素
+            // getComputedStyle( ) 取得最終樣式，僅唯讀，不可修改
+            console.log(getComputedStyle(element).color)
+            console.log(getComputedStyle(element, '::before').color)
+        } 
+    </script>
+</body>
+
+</html>

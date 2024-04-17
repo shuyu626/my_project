@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 練習 使用者輸入毫秒數，經過該時間後在網頁上顯示 時間到
+        const delay = parseInt(prompt('ms'))
+        setTimeout(() => {
+            document.write('時間到')
+        }, delay);
+
+
+        const delay2 = parseInt(prompt('ms'))
+        const write2 = () => {
+            document.write('時間到')
+        }
+        const timer2 = setTimeout(write2, delay2)
+
+
+    </script>
+</body>
+
+</html>

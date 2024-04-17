@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 製作計時器，從 10 開始倒數到 0，每秒在網頁上印出一個數字
+        //  解法一(老師)
+        let number = 10
+        let timer = setInterval(() => {
+            document.write(number + '<br>')
+            number--
+            if (number < 0) {
+                clearInterval(timer)
+            }
+        }, 1000)
+
+        // 解法二(老師) 不建議(用for會建立了十個計時器)
+        for (let i = 10; i >= 0; i--) {
+            setTimeout(() => {
+                document.write(i + '<br>')
+            }, (11 - i) * 1000)
+        }
+
+
+
+        // 解法三
+        let i = 10
+        const timer2 = setInterval(() => {
+            if (i >= 0) {
+                document.write(`${i}<br>`)
+                i--
+            } else {
+                clearInterval(timer2)
+            }
+        }, 1000)
+
+    </script>
+</body>
+
+</html>

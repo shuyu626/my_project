@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 第一次執行是過一秒後開始，不是一開始執行
+        setInterval(() => {
+            document.write('過一秒<br>')
+        }, 1000)
+
+
+        const timer = setInterval(() => {
+            document.write('過一秒<br>')
+        }, 1000)
+        setTimeout(() => {
+            clearInterval(timer)
+        }, 5000)
+
+
+
+
+
+    </script>
+</body>
+
+</html>

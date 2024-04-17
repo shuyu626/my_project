@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="text"></h1>
+    <script>
+        // 製作倒數計時器
+        // 使用者用 prompt() 輸入秒數數字
+        // 在網頁只能有一行字顯示 剩餘 X 秒，秒數不能變負數，顏色為藍色
+        // 時間到時文字變成紅色的 時間到
+
+        // const text = document.getElementById('text')
+        // let number = parseInt(prompt('秒數'))
+
+        const text = document.getElementById('text')
+
+        let number = parseInt(prompt('秒'))
+
+        const countdown = () => {
+            text.innerText = `剩餘 ${number} 秒`
+            text.style.color = 'blue'
+            number--
+
+            if (number < 0) {
+                text.innerText = '時間到'
+                text.style.color = 'red'
+                clearInterval(timer)
+            }
+        }
+        const timer = setInterval(countdown, 1000)
+        countdown()  // 呼叫function 解決一秒後才開始的問題
+
+
+
+        // 未完成
+        // let time = parseInt(prompt('秒數'))
+        // let timer1 = setInterval(() => {
+        //     document.write(`剩餘${time}秒<br>`)
+        //     time--
+        //     if (time <= 0) {
+        //         clearInterval(timer1)
+        //         document.write(`時間到`)
+        //     }
+        // }, 1000)
+
+
+    </script>
+</body>
+
+</html>

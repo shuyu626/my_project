@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 計時器for中 let 與 var 的差異
+
+
+        for (let i = 1; i <= 5; i++) {
+            setTimeout(() => {
+                document.write(i)
+            }, 3000)
+        }                    // 1 2 3 4 5
+
+        // 將 i 宣告為區域變數，確保 i 在每次迭代時都是新的值，因此在 setTimeout 中取得的是每次迭代的值，所以會依序印出 12345。
+
+
+
+        // 注意for裡面避免用var，否則會執行完迴圈，再將值
+        for (var i = 1; i <= 5; i++) {
+            setTimeout(() => {
+                document.write(i)
+            }, 3000)
+        }                   // 6 6 6 6 6
+
+        // 將 i 宣告為全域變數，在 setTimeout 中取得的是迴圈結束後的值，因此每次印出的都是 6
+
+    </script>
+</body>
+
+</html>
