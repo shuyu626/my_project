@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勞動部勞動力發展署─運動廣場連結網</title>
+    <style>
+        body {
+            background: #42413C;
+        }
+
+        table {
+            width: 100%;
+            /* ★ 合併儲存格之間的距離 ★ */
+            border-collapse: collapse;
+            /* 裡面內容全部水平置中 */
+            text-align: center;
+        }
+
+        table td {
+            padding: 0;
+        }
+
+        #main {
+            width: 1024px;
+            height: 768px;
+            margin: auto;
+            background: #fff;
+        }
+
+        #top {
+            width: 1024px;
+            height: 90px;
+            background: #00B0F0;
+        }
+
+        .main-title {
+            font-size: 52px;
+            font-family: "標楷體";
+            color: #FFFFFF;
+            text-shadow: 10px 10px 15px #333;
+        }
+
+        .logo {
+            width: 180px;
+            height: 90px;
+        }
+
+        #menu {
+            width: 1024px;
+            height: 25px;
+            /* background: lightgreen; */
+        }
+
+        #menu a {
+            background: #EEEEEE;
+            color: #000000;
+            text-decoration: none;
+            /* 轉型填滿父元素inline > block */
+            display: block;
+        }
+
+        #menu a:hover {
+            background: #FFFF00;
+            font-size: 14px;
+            color: #FF0000;
+            font-weight: bold;
+            cursor: pointer;
+
+        }
+
+
+        #content {
+            /*方法二 
+            box-sizing: border-box;
+            width: 1024px;
+            height: 608px; 
+            padding: 20px;
+            */
+            width: 984px;
+            height: 568px;
+            padding: 20px;
+            background: #FFFFFF;
+            color: #000000;
+            font-size: 14px;
+        }
+
+        iframe {
+            width: 984px;
+            height: 568px;
+            /* background: lightcyan; */
+        }
+
+        #footer {
+            width: 1024px;
+            height: 45px;
+            background: #CCC;
+            color: #FFF;
+            font-size: 14px;
+            text-align: center;
+            /* 垂直置中，不算分 */
+            line-height: 22.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="top">
+            <!-- 一列兩欄 -->
+            <table>
+                <tr>
+                    <td class="logo">
+                        <a href="./index.html">
+                            <img src="./images/logo.png" alt="「運動廣場連結網-回首頁" title="「運動廣場連結網-回首頁">
+                        </a>
+                    </td>
+                    <td class="main-title">運動廣場連結網</td>
+                </tr>
+            </table>
+        </div>
+        <div id="menu">
+            <!-- 讓hover的時候不會整個table在抖動 -->
+            <table style="table-layout:fixed">
+                <tr>
+                    <td><a href="./index.html">首頁</a></td>
+                    <td><a href="./results/health.html" target="iframe">健康天地</a></td>
+                    <td><a href="./results/basketball.html" target="iframe">籃球介紹</a></td>
+                    <td><a href="./results/baseball.html" target="iframe">棒球介紹</a></td>
+                    <td><a href="./results/swimming.html" target="iframe">游泳介紹</a></td>
+                    <td><a href="./results/msgboard.html" target="iframe">訪客留言</a></td>
+                    <td><a href="./results/reference.html" target="iframe">資料來源</a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="content">
+            <iframe src="./results/main.html" frameborder="0" name="iframe"></iframe>
+        </div>
+        <div id="footer">
+            網頁設計及維護：01游舒羽<br>
+            最近更新日期：2024/04/08
+        </div>
+    </div>
+
+</body>
+
+</html>
