@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 由內往外找變數，{}為一個區塊
+        // {}內有宣告變數
+        let a = 1
+        if (true) {
+            let a = 2
+            console.log(a)  //2
+        }
+        console.log(a)
+
+        // {}沒宣告變數，等於把b改值為2
+        let b = 1
+        if (true) {
+            b = 2  // 跟上個筆少了let
+            console.log(b)  // 2
+        }
+        console.log(b)      //2
+
+
+    </script>
+</body>
+
+</html>

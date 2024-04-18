@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ++ -- 遞增遞減
+        let a = 10
+        // a++ --> a = a + 1 一個變數++放前後一樣
+        a++
+        console.log(a)  // 11
+        ++a
+        console.log(a)  // 12
+
+        // =後面先接變數就先給值再運算，=後面加運算子就先運算再給值
+        // let 可以用,同時區別兩個變數
+        // let x = 0, y = 10  --> let x=0 let y= 10
+        let x = 0, y = 10
+        x = y++
+        // x = y    (10,10)
+        // y++      (10,11)
+        console.log(x, y)
+
+        let xx = 0, yy = 10
+        xx = ++yy
+        // ++yy     (0,11)
+        // xx = yy  (11,11)
+        console.log(xx, yy)
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

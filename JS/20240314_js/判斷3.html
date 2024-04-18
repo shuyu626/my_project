@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 可以很多條件依照順序做判斷
+        // 小括號都是動作，放要傳進動作的資訊 (提供給參數的資訊 顯示的訊息 可不填,可填可不填 預設值0)
+        // 注意判斷式是否為一組，if後面的判斷式為else if，若只寫if則會被視為非同組判斷式
+        // 以下題目為年齡最高可看的影視分級，須注意順序，若反過來由普遍級開始設定，則變為最低可看的影視分級:
+        const age = prompt('請輸入年齡', 0)
+
+        if (age >= 18) {
+            document.write('限制級')
+        } else if (age >= 15) {
+            document.write('輔15')
+        } else if (age >= 12) {
+            document.write('輔12')
+        } else if (age >= 6) {
+            document.write('保護級')
+        } else if (age >= 0) {
+            document.write('普遍級')
+        } else {
+            document.write('輸入年齡不正確')
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

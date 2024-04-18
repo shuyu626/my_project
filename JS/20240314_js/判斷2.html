@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const rain = true, wind = true
+        // !為相反，&&為兩者皆須成立，以下為如果沒下雨和沒風就去看電影，反之在家發呆
+        if (!rain && !wind) {
+            console.log('看電影')
+        } else {
+            console.log('在家發呆')
+        }
+
+        // ||為或，符合一即可
+        const dinner = '便當'
+        if (dinner === '炸雞' || dinner === '可樂') {
+            console.log('好耶')
+        }
+        else {
+            console.log('不好耶')
+        }
+
+        //左到右判斷，小括號先判斷
+        const coding = confirm('你會寫 code 嗎')
+        const game = confirm('你有玩原神嗎')
+        const player = confirm('你是可莉玩家嗎')
+        // 同時會玩原神和是可莉玩家 或 會寫code才成立
+        if ((game && player) || coding) {
+            console.log('酷欸')
+        } else {
+            console.log('加油')
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

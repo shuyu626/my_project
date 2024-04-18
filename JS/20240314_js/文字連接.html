@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // prompt(輸入框文字 提示訊息)
+        // 跳出一個文字輸入框，輸入框出現時網頁是暫停狀態
+        // 會收到輸入的文字(變數變成使用者輸入的訊息)，如果按取消的話則是 null
+        const firstName = prompt('請輸入姓')
+        // 輸入後不會變(固定的)，所以可以使用const
+        const lastName = prompt('請輸入名')
+        const fullName = lastName + firstName
+        // document.write在網頁上顯示變數
+        document.write('<h1>' + fullName + '</h1>')
+        document.write(`<h1> ${fuxxyllName} </h1>`)
+
+
+    </script>
+</body>
+
+</html>
