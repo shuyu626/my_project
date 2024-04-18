@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const user = {
+            name: 'AAA',
+            info: {
+                email: 'aaa@gmail.com'
+            }
+        }
+        console.log(user.name)              // AAA 用.去取值
+        console.log(user.info.email)        // aaa@gmail.com
+        console.log(user.info.address)      // undefined
+        // 發生錯誤 Uncaught TypeError: Cannot read properties of undefined (reading 'city')
+        // 沒辦法找到undefined裡面的city屬性
+
+        // console.log(user.info.address.city)->
+        // undefined 物件比較常用如果有就用找到的東西，如果沒有就會顯示undefined，不會顯示錯誤
+        console.log(user.info.address?.city) //可能少資料，用?可避免上面的錯誤
+
+
+
+
+        const products = [
+            { name: 'Iphone 15', price: 48900 },
+            {
+                name: 'Nothing Phone(2)',
+                price: 21900,
+                producer: {
+                    name: 'Nothing',
+                    url: 'https://tw.nothing.tech/'
+                }
+            },
+            {
+                name: 'Nothing Phone(1)',
+                price: 14900,
+                producer: {
+                    name: 'Nothing',
+                    url: 'https://tw.nothing.tech/'
+                }
+            }
+        ]
+        for (let i = 0; i < products.length; i++) {
+            document.write(`
+        <p>
+            ${products[i].name}，價格為${products[i].price}
+            製造商為
+            <a href="${products[i].producer?.url || '#'}">${products[i].producer?.name || '不明'}</a>
+        </p>
+        `)
+        }
+    </script>
+</body>
+
+</html>

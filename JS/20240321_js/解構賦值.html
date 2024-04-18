@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const array = [1, 2, 3, 4]
+        // const one = array[0]及const two = array[0]簡寫成下行
+        // ... 代表剩下的分配給 others ，可以不要
+        // 陣列解構時的 one、two、others 可以自己命名
+        let [one, two, ...others] = array // ...其他、剩下的
+        console.log(one)  // 1
+        console.log(two)  // 2
+        console.log(others) // (2)[3, 4]  >(2)代表[]有兩個東西，陣列出來是陣列
+        // 想看到陣列用console
+
+        // 解構是看資料型態，陣列物件是reference，其他是value
+        one = 100
+        console.log('one', one)     //100
+        console.log('array', array) //[1,2,3,4]  //不會動到陣列原本的東西
+
+
+
+
+        const obj = { a: 1, b: 2, c: 3, d: 4 }
+        // const a = obj.a
+        // const bbb =obj.b
+        // 物件解構必須取得 key 相同的名字，或是用 : 重新命名
+
+        // 要用:重新命名避免有其他的變數重複使用到b而發生錯誤
+        const b = 5050
+        const { a, b: bbb, ...apple } = obj
+        console.log(bbb)  // 2
+        console.log(apple) // {c:3, d:4}，物件出來是物件
+
+        a = 100
+        console.log(a)      // 100
+        console.log(obj)    // { a: 1, b: 2, c: 3, d: 4 }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

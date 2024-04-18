@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const Y = parseInt(prompt('請輸入出生西元年'))
+        const M = parseInt(prompt('請輸入出生月份'))
+        const D = parseInt(prompt('請輸入出生日期'))
+        var days = 0
+        for (let i = 1; i <= M - 1; i++) {
+            if (i == 2) {
+                // 400的倍數是閏年
+                // 4的倍數但不是100的倍數是閏年
+                if (Y % 400 === 0 || (y % 4 === 0 && y % 100 !== 0)) {
+                    days += 29
+                } else {
+                    days += 28
+                }
+            }
+            // 七月以前的基數月辦阿月以後的偶數月是31天
+            else if ((i <= 7 && i % 2 === 1) || (i >= 8 && i % 2 === 0)) {
+                days += 31
+            } else {
+                days += 30
+            }
+        }
+        day += D
+        document.write(days)
+
+    </script>
+</body>
+
+</html>

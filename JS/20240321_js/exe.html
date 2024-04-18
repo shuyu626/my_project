@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. 印出陣列 第 x 個數字為 y
+        // 方法一
+        let numbers = [33, 75, 69, 41, 50, 19]
+        for (let i = 0; i < numbers.length; i++) {
+            document.write(`第${i + 1}個數字為${numbers[i]}<br>`)
+        }
+        document.write('<hr>')
+
+        // 方法2
+        // for (const i in numbers) {
+        //     document.write(`第${i * 1 + 1}個數字為${numbers[i]}<br>`)
+        // }
+
+
+        //2. 求 41 是第幾個數字
+        // 方法一
+        for (let j = 0; j < numbers[j]; j++) {
+            if (numbers[j] == 41)
+                document.write(`第${j + 1}個數字為${numbers[j]}<br>`)
+        }
+        document.write('<hr>')
+
+        // 方法二
+        // for (const i in numbers) {
+        //     if (numbers[i] === 41) {
+        //         document.write(`41是第${j * 1 + 1}個字<br>`)
+        //         break// 找到就停止
+        //     }
+        // }
+
+        // 方法三
+        // 陣列索引從0開始
+        // 假設 41 的索引是 -1，代表他不在陣列裡面
+        // let index41 = -1
+        // for (const i in number) {
+        //     if (numbers[i] === 41) {
+        //         index41 = i * 1 + 1
+        //         break
+        //     }
+        // }
+        // document.write(index41 === -1 ? '找不到 41<br>' : `41是第${indexi})個字<br>`)
+
+
+        // 3. 有幾個奇數和幾個偶數 ?
+        let odd = 0
+        let even = 0
+        for (const i in number) {
+            if (numbers[1] % 2 === 1) {
+                odd++
+            } else {
+                even++
+            }
+        }
+        document.write(`奇數:${odd},偶數${even}`)
+
+        // 4. 最大數字和最小數字
+        let min = numbers[0]
+        let max = numbers[0]
+        for (const number of numbers) {
+            if (number > max) {
+                max = number
+            }
+            if (number < min) {
+                min = number
+            }
+        }
+        document.write(`最大:${max}，最小${min}`)
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

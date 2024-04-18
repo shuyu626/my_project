@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3]
+        const obj = { a: 1, b: 3, c: 3 }
+
+        // 改值
+        arr[0] = 111 // 把索引的0改成值111
+        obj.a = 111  // 把索引a改成值111
+
+        console.log(arr)
+        console.log(obj)
+
+
+        // Pass by reference 傳址
+        // 直達電腦記憶體相同的位置，ab為同一物
+        // 陣列的複製比較麻煩
+        const a = [1, 2, 3]
+        const b = a // 拷貝物件的地址 ，即a=b
+        b[0] = 100 // b內索引0的值改為100
+        console.log(a)       //[100 , 2, 3]
+        console.log(b)       //[100 , 2, 3]
+        console.log(a === b) // true
+
+        const obj1 = { a: 1, b: 2, c: 3 }
+        const obj2 = obj1
+        obj1.a = 100
+        console.log(obj1)  // {a: 100, b: 2, c: 3}
+        console.log(obj2)  // {a: 100, b: 2, c: 3}
+
+
+        // Pass by value 賦值
+        let test1 = 1
+        let test2 = test1
+        test2 = 100
+        console.log(test1) // 1
+        console.log(test2) // 100
+
+
+
+        // 陣列物件指定位置的話是看資料型態，陣列物件是reference，其他是value
+        const c = [4, 5, 6]
+        // 要看指到的是陣列還是物件
+        // 看指到陣列裡面的東西的資料型態是甚麼，單純數字布林值部會向賦址一樣被影響
+        let d = c[0] // 複製數值給d 
+        d = 100
+        console.log(c) // [4,5,6]
+        console.log(d) // 100
+
+
+        const obj3 = { a: 1, b: 2, c: 3 }
+        const obj4 = { a: obj3.a, b: obj3.b, c: obj3.c }
+        obj4.a = 100
+        console.log(obj3) // { a: 1, b: 2, c: 3 }
+        console.log(obj4) // { a: 100, b: 2, c: 3 }
+
+        // 陣列物件會改到原本的值，其他的不會
+
+    </script>
+</body>
+
+</html>
