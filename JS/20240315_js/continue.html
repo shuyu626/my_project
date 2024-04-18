@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        for (let i = 1; i <= 9; i++) {
+            if (i !== 5) {
+                document.write(i + '<br>') // i!==5的時候寫出來
+            }
+        }
+
+
+        document.write('<hr>')
+
+
+        // 上下兩著一樣，建議用下面的
+        for (let i = 1; i <= 9; i++) {
+            if (i === 5) {
+                continue // i=5的時候略過
+            }
+            document.write(i + '<br>')
+        }
+
+        document.write('<hr>')
+
+
+
+
+        for (let i = 1; i <= 5; i += 1) {
+            for (let j = 1; j <= 5; j += 1) {
+                //多層迴圈時continue是對寫的那層有效，無法指定哪一層
+                // 直接跳到j++後進入下一次j迴圈
+                document.write('a')
+                if (i === 2) continue
+                document.write(i + 'x' + j + '=' + i * j + '<br>')
+            }
+        }
+
+
+        // 給迴圈命名loop 1 loop2
+        // 將外層迴圈命名為loop1
+        // 將內層迴圈命名為 loop2
+        loop1: for (let i = 1; i <= 5; i++) {
+            loop2: for (let j = 1; j <= 5; j++) {
+
+                // 直接跳到i++後進入下一次i迴圈
+                document.write('a')
+                if (i === 2) continue loop1   // 指定對loop1迴圈continue
+                document.write(i + 'x' + j + '=' + i * j + '<br>')
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

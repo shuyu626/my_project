@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 會取一個boolean()判斷為true的值
+        const x = null || 0 || undefined || 123 || 'abc' || 'dfgd' || false
+        console.log(x)
+
+        // const name = prompt('請輸入名字') || '路人'
+        // console.log(name)
+        // 
+        let name = prompt('請輸入名字')
+        if (name === '' || name === null) {
+            name = '路人'
+            console.log(name)
+        }
+
+        // 會取一個boolean()判斷為false的值
+        const y = 'abe' && 123 && 456 && false && 'def' && undefined
+        console.log(y)
+
+        // 會取一個不是null也不是undefined的值
+        const z = undefined ?? null ?? false ?? 'abc' ?? 123 ?? false
+        console.log(z)
+
+
+
+    </script>
+</body>
+
+</html>
