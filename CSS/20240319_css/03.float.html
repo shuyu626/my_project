@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 45%;
+            margin: 2rem auto;
+            background: #ccc;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .float-left {
+            /* float 會自動轉型成 block */
+            float: left;
+            margin: 1rem;
+        }
+
+        .clear-left {
+            clear: left;
+        }
+
+        .float-right {
+            /* float 會自動轉型成 block */
+            float: right;
+            margin: 1rem;
+        }
+
+        .clear-right {
+            clear: right;
+        }
+
+        .clear-both {
+            clear: both;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: #000;
+            color: white;
+            /* ★讓浮動元素再次被包覆★ */
+            overflow: hidden;
+
+        }
+
+        .menu-item {
+            /* box-sizing，改變盒子計算的方式，寬度(width)可以包含padding、border */
+            box-sizing: border-box;
+            width: 20%;
+            padding: 1rem;
+
+
+            float: left;
+            text-align: center;
+            background: #aaa;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- float用來做文繞圖 -->
+    <div class="container">
+        <h2>float-left</h2>
+        <img class="float-left" src="https://picsum.photos/200/200/?random=10">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non, alias nihil quo nemo sint minima, aspernatur recusandae aut aliquid dolorum molestiae rerum ullam. Placeat doloribus, maiores aperiam nihil veniam debitis alias ducimus doloremque quidem corporis voluptas. Corporis molestias iusto officiis nisi! Harum distinctio nisi fugit, sse dolor, iure et vero, deserunt aut error sapiente numquam iusto asperiores facilis consectetur? Ipsum?</p>
+        <p class="clear-left">結果檔案，如何良好你在起來貨幣時期金幣都在小姐聯繫電話依然處理器臺灣，進步當前位置，一對其中有效推坑王立場，人大溫州，一些本公司鈴聲躺在，大多數風格暴力網頁班遭遇範圍內，金屬我在湖北教學數字法國我的一遍原始碼房子，差不多採取正確把它，最新樹林有效幸福回覆。</p>
+    </div>
+
+    <div class="container">
+        <h2>float-right</h2>
+        <img class="float-right" src="https://picsum.photos/200/200/?random=10">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non, alias nihil quo nemo sint minima, aspernatur recusandae aut aliquid dolorum molestiae rerum ullam. Placeat doloribus, maiores aperiam nihil veniam debitis alias ducimus doloremque quidem corporis voluptas. Corporis molestias iusto officiis nisi! Harum distinctio nisi fugit, sse dolor, iure et vero, deserunt aut error sapiente numquam iusto asperiores facilis consectetur? Ipsum?</p>
+        <p class="clear-right">結果檔案，如何良好你在起來貨幣時期金幣都在小姐聯繫電話依然處理器臺灣，進步當前位置，一對其中有效推坑王立場，人大溫州，一些本公司鈴聲躺在，大多數風格暴力網頁班遭遇範圍內，金屬我在湖北教學數字法國我的一遍原始碼房子，差不多採取正確把它，最新樹林有效幸福回覆。</p>
+    </div>
+
+    <div class="container">
+        <h2>float-left 與 float-right</h2>
+        <img class="float-left" src="https://picsum.photos/200/200/?random=10">
+        <img class="float-right" src="https://picsum.photos/200/200/?random=10">
+        <p class="clear-both">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere nam molestiae aliquid. Asperiores deleniti quam est ad eligendi! Nisi, fugiat quam laborum totam suscipit eaque adipisci cum ea, nemo perspiciatis voluptate. Minima iste accusantium assumenda deleniti, sapiente sit mollitia obcaecati quasi. Saepe natus, iusto omnis sapiente corrupti repellat voluptate error.</p>
+    </div>
+
+    <div class="container">
+        <h2>浮動的特性</h2>
+        <ul>
+            <li>具有區塊化(block)的特性，將元素轉型為block</li>
+            <li>會脫離正常流向獨立，會影響父元素無法包覆浮動元素，若父元素沒有內容或 padding，就會造成父元素高度崩塌消失。</li>
+            <li>父元素設定 overflow:hidden 可以讓浮動元素再次被包覆</li>
+        </ul>
+    </div>
+
+    <!-- ★overflow:hidden 可以讓浮動元素再次被包覆★ -->
+    <div style="background:deepskyblue ;overflow:hidden">
+        <span style="float:left">我是span，誕生時為inline，float 後變成block</span>
+        <button style="float:right">我是button，誕生時為inline，float 後變成block</button>
+    </div>
+
+
+    <div class="container">
+        <h2>float 選單</h2>
+        <!-- ul.menu>li.menu-item{item$}*5 -->
+        <ul class="menu">
+            <li class="menu-item">item1</li>
+            <li class="menu-item">item2</li>
+            <li class="menu-item">item3</li>
+            <li class="menu-item">item4</li>
+            <li class="menu-item">item5</li>
+        </ul>
+
+    </div>
+
+
+</body>
+
+</html>

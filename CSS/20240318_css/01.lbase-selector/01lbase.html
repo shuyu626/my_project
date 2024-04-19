@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 第二種方式，用外部樣式表，link起來 -->
+    <!-- 1.可以給其他文件使用，不需要在每個文件寫重複的樣式
+        2.html檔案較小，維護較容易 
+    -->
+    <link rel="stylesheet" href="./style1.css">
+    <!-- 給這份網頁使用的樣式 -->
+    <style>
+        /* /第一種方式，用style標籤寫這份網頁的樣式 */
+        /* 標籤選擇器 */
+        /* 選擇器{
+            屬性: 值;
+        }
+        */
+        h1 {
+            color: red;
+            background: yellow;
+            font-size: 40px;
+        }
+
+
+        p {
+            color: blueviolet;
+        }
+
+        /* 多行註解 */
+        /* 由上至下讀取程式碼，後面屬性值會蓋掉前面的 */
+        /* 群組以逗點分開 */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 標籤選擇器 -->
+    <!-- 第三種方式 行內樣式，優先權最高(如果其他人沒有!important，盡量不要使用!important)-->
+    <h1 style="color:brown;">Title1</h1>
+    <p>背景保存認為房價小孩提問導航，此外去了。</p>
+
+    <h1>Title1</h1>
+    <p>背景保存認為房價小孩提問導航，此外去了。</p>
+
+    <h1>Title1</h1>
+    <p>背景保存認為房價小孩提問導航，此外去了。</p>
+
+    <h1>Title1</h1>
+    <p>背景保存認為房價小孩提問導航，此外去了。</p>
+
+
+    <!-- 群組選擇器 -->
+    <h1>Hello World</h1>
+    <h2>Hello World</h2>
+    <h3>Hello World</h3>
+    <h4>Hello World</h4>
+    <h5>Hello World</h5>
+    <h6>Hello World</h6>
+
+
+
+</body>
+
+</html>

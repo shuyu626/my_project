@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 微軟正黑體;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #222;
+        }
+
+
+        h2 span {
+            color: #555;
+            transition: 0.5s;
+        }
+
+        h2:hover span {
+            color: #0f0;
+            text-shadow:
+                0 0 5px #0f0,
+                0 0 15px #0f0,
+                0 0 30px #0f0,
+            ;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2 class="text">
+        身體最新任務，台北創新新聞執行時間實施方案引擎無派，實業星座帳號形象，供應可憐首先招聘內地空中比如歌手等級動漫，測試在這裡，留學世界上零售推廣演出農業再度開心組圖隨時凱文，整合貼布女孩小遊戲電子內心參加予以，含有視頻部分數字他們的友情連結相對資訊通知能不。
+    </h2>
+
+    <script>
+
+        const text = document.querySelector('.text');
+        // .innerText取裡面的東西做切割
+        text.innerHTML = text.innerText
+            .split('') //將字串轉為陣列 
+            // map 可以重新組合陣列中的每個元素
+            .map((char, i) => {
+                return `<span style="transition-delay: ${i * 40}ms; 
+                filter:hue-rotate(${i * 30}deg) ">${char}</span>`
+            })// filter色相轉換成值
+            .join('');
+    </script>
+</body>
+
+</html>

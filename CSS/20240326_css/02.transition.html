@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .hover {
+            height: 100px;
+            color: white;
+            font-size: 2rem;
+            /* por */
+            position: relative;
+            left: 0;
+            text-align: center;
+
+            /* 轉場的屬性，個別設定，部分屬性不可轉場*/
+            transition-property: width, background-color, font-size, transform, left, box-shadow, border-radius;
+            /* 持續時間，也可以用ms(毫秒) */
+            /* 預設就是all，也可以是none(取消轉場效果) */
+            transition-property: all;
+            transition-duration: 1s;
+            /* 轉場速率 */
+            /* ease:預設值，慢速開始，然後加速
+            linear 線性，等速 
+            ease in 由慢變快 
+            ease out 由快變慢
+            ease-in-out 慢速開始，然後加速，最後減速
+            */
+            /* 搜尋 http://easings.net */
+            transition-timing-function: cubic-bezier(0.64, 0, 0.78, 0);
+            /* 延遲時間，預設是0 */
+            transition-delay: 1s;
+            /* 縮寫，一組一組指定 */
+            /* 第一個時間是持續時間，第二個是延遲時間  */
+            transition: width 0.5s 2s ease-in, background-color 1s 2s ease-out;
+            /* 最常用縮寫，沒寫就是預設，以下是持續時間1s ，延遲時間2s */
+            transition: 1s;
+
+
+            /* 起始樣式 */
+            width: 100px;
+            background-color: #db9e4f;
+        }
+
+        /* 狀態觸發 hover是觸發動作 */
+        .hover:hover {
+            /* 結束樣式 */
+            width: 50vw;
+            background-color: rgb(17, 206, 118);
+            font-size: 8rem;
+            /* transform: rotate(720deg);*/
+            /* 要注意position的定位 */
+            /* left: 100px;
+            box-shadow: 10px 10px 5px rgb(17, 128, 122);
+            border-radius: 10px;  */
+        }
+
+        /* inline 沒辦法變形 */
+        .hover span {
+            transition: 0.5s;
+            display: inline-block;
+            transform: rotate(0deg);
+        }
+
+        .hover:hover span {
+            transform: rotate(360deg);
+        }
+
+        .link {
+            display: inline-block;
+            border: 1px solid black;
+            background: #000;
+            color: white;
+            border-radius: 5px;
+            padding: 1px 2px;
+            margin-left: 30%;
+            margin-top: 15%;
+            width: 80px;
+            text-align: center;
+            text-decoration: none;
+            transition: 1.5s;
+        }
+
+
+        .link:hover {
+            background-color: rgb(91, 233, 185);
+            color: rgb(2, 110, 110);
+            /* transform 在初始樣式有想兩個 結束樣式就要寫兩個，要不初始就不要寫 */
+            transform: scale(7);
+            border: 3px solid rgb(255, 225, 55);
+            font-weight: bold;
+            /* inset 內陰影 */
+            box-shadow: inset 0 0 3px 1px orange;
+        }
+
+
+
+        label[for="checked-me"] {
+            /* 滑鼠變成可以點擊的樣式 */
+            cursor: pointer;
+            background: rgb(247, 111, 145);
+            color: white;
+            padding: 0.5rem;
+            display: inline-block;
+        }
+
+        #checked-me {
+            display: none;
+        }
+
+        .sidebar {
+            width: 100px;
+            color: white;
+            background: #000;
+            padding: 1rem;
+            /* 初始樣式 */
+            /* 一開始先設定在螢幕外，點擊後再跑進螢幕內 */
+            margin-left: -200px;
+            transition: 1s;
+
+        }
+
+        /* 狀態改變 */
+        #checked-me:checked+.sidebar {
+            /* 結束樣式 */
+            margin-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>轉場(transition)或稱為過渡</h1>
+    <ul>
+        <li>轉場是兩組樣式之間漸進式的轉換過程，有起始樣式與結束樣式，瀏覽器會將兩組樣式形成補間動畫(Tween)</li>
+        <li>必須要有狀態做觸發動作(狀態有很多種)，最常見的是 :hover ，或是 madia quary 斷點的變化也可以造成轉場</li>
+    </ul>
+
+    <h1>hover 狀態</h1>
+    <div class="hover">
+        <span>hover</span>
+    </div>
+
+    <h2>練習:做一個按鈕，滑鼠 hover 時，背景顏色、文字顏色、按鈕放大的轉場效果</h2>
+    <a href="#" class="link">按鈕連結</a>
+
+    <hr>
+
+
+    <h1>checked 狀態</h1>
+    <p>:checked 狀態改變，transition 發生</p>
+    <label for="checked-me">CheckMe</label>
+    <input id="checked-me" type="checkbox">
+
+    <div class="sidebar">
+        超過反饋高達財富仍然，長大定位專門不久同學長期觀點做出給他這個需求組圖道理，不夠部落到來頁面界面任何人你說爆炸在於螢幕大全，後來結婚和你字幕供應商一對發佈各自金錢講話需要已被內地宜蘭，鎖定一段時間人才下列足球，很少攝影考察之處鑒定，結束職責考察專業，浪漫。
+    </div>
+</body>
+
+</html>

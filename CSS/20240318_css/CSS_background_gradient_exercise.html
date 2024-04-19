@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style>
+		body {
+			text-align: center;
+		}
+
+		table {
+			margin: 1rem;
+			display: inline-block;
+		}
+
+		table,
+		tr,
+		td {
+			border: 1px solid #000;
+		}
+
+		table td {
+			width: 200px;
+			height: 200px;
+		}
+
+		.box {
+			width: 200px;
+			height: 200px;
+		}
+
+		.bg-color {
+			background-color: red;
+		}
+
+		.bg-img {
+			background-image: url("https://picsum.photos/200/200/?random=1");
+		}
+
+		.bg-repeat-x {
+			background-image: url("https://picsum.photos/50/50/?random=3");
+			background-repeat: repeat-x;
+		}
+
+		.bg-repeat-y {
+			background-image: url("https://picsum.photos/50/50/?random=5");
+			background-repeat: repeat-y;
+		}
+
+		.bg-no-repeat {
+			background-image: url("https://picsum.photos/50/50/?random=5");
+			background-repeat: no-repeat;
+		}
+
+		.bg-position {
+			background-image: url("https://picsum.photos/50/50/?random=5");
+			background-position: center;
+		}
+
+		.bg-yellow {
+			background-color: rgb(255, 255, 168);
+		}
+
+		.bg-three {
+			background-image:
+				url("https://picsum.photos/200/50/?random=1"),
+				url("https://picsum.photos/200/100/?random=3"),
+				url("https://picsum.photos/200/50/?random=1");
+			background-position: left top, left center, left bottom;
+		}
+
+		.linear-gradient {
+			background-image: linear-gradient(90deg, black, blue);
+		}
+
+		.radial-gradient {
+			background-image: radial-gradient(black, white);
+		}
+	</style>
+</head>
+
+<body>
+	<table>
+		<tr>
+			<td>
+				<div class="box bg-color"></div>
+			</td>
+			<td>
+				<div class="box bg-img"></div>
+			</td>
+			<td>
+				<div class="box bg-repeat-x"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="box bg-repeat-y"></div>
+			</td>
+			<td>
+				<div class="box bg-no-repeat bg-position"></div>
+			</td>
+			<td>
+				<div class="box bg-no-repeat bg-position bg-yellow"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="box bg-no-repeat bg-three"></div>
+			</td>
+			<td>
+				<div class="box linear-gradient"></div>
+			</td>
+			<td>
+				<div class="box radial-gradient"></div>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

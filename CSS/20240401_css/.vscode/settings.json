@@ -1,0 +1,14 @@
+	// 格式化 -------------------------------------------------------------------------------------------
+	"prettier.semi": false, // 是否要在每一列的結尾加上分號。
+	"prettier.printWidth": 160, // html 屬性想折行可以註解起來
+	"prettier.useTabs": true,
+	"prettier.singleQuote": true, // 使用單引號
+	"prettier.trailingComma": "none", // 省略尾巴逗號
+	"prettier.singleAttributePerLine": false, // 在 HTML、JSX、Vue 和 Angular 中強制每行使用單個屬性。
+	"prettier.jsxSingleQuote": true, // jsx 使用單引號
+	"prettier.endOfLine": "auto",
+	"editor.defaultFormatter": "esbenp.prettier-vscode", // 設置各種文件排版所使用的格式器
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+    

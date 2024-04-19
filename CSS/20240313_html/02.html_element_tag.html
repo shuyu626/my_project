@@ -1,0 +1,412 @@
+<!-- html5的結構 -->
+<!-- 宣告版本 -->
+<!DOCTYPE html>
+<!-- lang語系 -->
+<!-- html根元素，在css叫偽類:root 指的就是html -->
+<html lang="en">
+
+<head>
+    <!-- UTF-8 編碼 確保瀏覽器該網頁時正常，如果沒設定，他國人士的裝置瀏覽時會出現亂碼 -->
+    <meta charset="UTF-8">
+    <!-- RWD一定要這行 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 瀏覽器搜尋的時候，會以content的值來顯示 -->
+    <meta name="description" content="這是我第一個網頁">
+    <title>這是我的第一個網頁</title>
+    <!-- 外部樣式表，css檔案，目前沒作用 -->
+    <link rel="stylesheet" href="./css/example.css">
+    <!-- style標籤指的是該網頁使用的樣式 -->
+    <style>
+        body {
+            background: #ffa;
+            padding-bottom: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 錨點須對應的id區塊 -->
+    <a href="#a1">a1</a>
+    <h1>常用標籤 </h1>
+    <h2>標籤h1~h6</h2>
+    <h1>h1 - Hello World </h1>
+    <h2>h2 - Hello World </h2>
+    <h3>h3 - Hello World </h3>
+    <h4>h4 - Hello World </h4>
+    <h5>h5 - Hello World </h5>
+    <h6>h6 - Hello World </h6>
+
+    <hr>
+
+    <h2>段落 p</h2>
+    <p>我是段落文字</p>
+
+    <!-- 英文假字 lorem-->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quae! Sit rem aspernatur nemo nam quae odit
+        eaque id animi aperiam, debitis soluta corporis aliquam eum dolor neque saepe repudiandae?</p>
+    <!-- lorem+數字 例如lorem3 產生3個假字 -->
+    <p>Lorem, ipsum dolor.</p>
+    <!-- 中字假字 -->
+    <p>消除之外灌水地上，按鈕液晶運行之一原文應用，實驗很大最後美容不住美容以為，說到。</p>
+    <!-- ctlorem10 -->
+    <p>權利小七鮮花，一件。</p>
+
+    <hr>
+    <h2 id="a1">超連結 a</h2>
+    <!-- a標籤，標記了google，按下去前往google的位置 -->
+    <!-- href為 hypertext reference的縮寫 -->
+    <a href="http://www.google.com">Google</a>
+    <!-- _blank 開一個新視窗 ; _self開在同一個視窗 -->
+    <a href="http://www.google.com" target="_blank">Google</a>
+    <!-- #跳回頁面頂端 -->
+    <a href="#">跳回頂端</a>
+
+
+    <!-- 錨點 -->
+    <a href="#bottom">網頁底部</a>
+
+
+
+    <hr>
+    <!-- br標籤，標記換行 -->
+    <h2>換行 br</h2>
+    想要我的財寶嗎<br>
+    去找吧<br>
+    我把財寶都放在那裡
+
+
+    <hr>
+
+    <h2>ol(ordered list) 有序清單</h2>
+    <ol>
+        <li>海賊王</li>
+        <li>火影忍者</li>
+        <li>JOJO冒險野郎</li>
+        <li>魁男塾</li>
+    </ol>
+
+    <!-- emmet -->
+    <!-- ul>li*4 -->
+    <h2>ul(ulordered list)無序清單</h2>
+    <ul>
+        <li>吃飯</li>
+        <li>睡覺</li>
+        <li>寫程式</li>
+        <li>耍廢</li>
+    </ul>
+
+    <hr>
+
+    <h2>HTML 巢狀概念</h2>
+    <p>巢狀不只存在於HTML，其他技術也有此概念，有巢狀就有父、子或祖先關係，外、內關係產生，同一層級又稱為兄弟關係</p>
+
+    <ul>
+        <li>
+            <h3>前端技能</h3>
+            <ol>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ol>
+        </li>
+        <li>
+            <h3>後端技能</h3>
+            <ol>
+                <li>Node.js</li>
+                <li>php</li>
+                <li>MongoDB</li>
+            </ol>
+        </li>
+    </ul>
+
+
+    <hr>
+
+    <h2>圖片 img</h2>
+    <ul>
+        <li>絕對路徑:一般連結到外部連結或資源時使用，不要用絕對路徑使用自己的資源，當網域修改時會改到瘋掉</li>
+        <li>相對路徑:從編輯文件的位置為起點來找到目標資源的位置(html、圖片)，製作網站使用這樣的方式。</li>
+    </ul>
+
+
+    <!-- picsum假圖 -->
+    <!-- 300x300 的大小，random是該尺寸隨機的號碼 -->
+    <img src="https://picsum.photos/300/300/?random=10">
+    <img src="https://picsum.photos/300/300/?random=11">
+    <img src="https://picsum.photos/300/300/?random=12">
+
+
+    <h3>絕對路徑</h3>
+    <!-- alt 替代文字 連結找不到資源時會出現的替代文字 -->
+    <!-- title 圖片標題 滑鼠移上圖片時會顯示的圖片名稱 -->
+    <img src="https://static.wikia.nocookie.net/jjba/images/0/01/JotaroProfile.png" alt="空条承太郎" title="Jotaro">
+
+
+    <h3>相對路徑</h3>
+    <!--可以設定寬(width)高(height)，瀏覽器會自動調整比例，通常width和height擇一設定，避免比例跑掉 -->
+    <img src="./images/下載.jfif" width="200">
+
+
+    <hr>
+
+    <h2>頁框 iframe</h2>
+    <!-- 建立關聯性iframe要有name a要有target -->
+    <a href="./others/hello.html" target="myframe">載入hello.html到一個name叫myframe的頁框裡面</a><br>
+    <!-- main.html 預設頁面 -->
+    <!-- iframe在頁面上挖一個框框，把另一個頁面載入，可以設定框框大小及邊框，scrolling是否要捲動軸 -->
+    <iframe src="./others/main.html" frameborder="0" width="800" height="400" scrolling="no" name="myframe"></iframe>
+
+    <hr>
+
+    <h2>各種字體的標籤</h2>
+    <!-- 粗體 -->
+    <b>粗體</b>
+    <strong>粗體</strong>
+
+    <br>
+
+    <!-- 斜體 -->
+    <i>斜體</i>
+    <em>斜體</em>
+
+
+    <br>
+
+    <!-- 刪除線 -->
+    <s>刪除線</s>
+    <del>刪除線</del>
+
+    <br>
+
+    <!-- 底線 -->
+    <u>底線</u>
+    <ins>底線</ins>
+
+    <br>
+
+    <mark>黃色標籤</mark>
+
+    <br>
+
+    <!-- 上標 -->
+    x<sup>2</sup>
+
+    <br>
+    <!-- 下標 -->
+    CO<sub>2</sub>
+
+    <!-- precode(代表程式碼)保留縮排、保留原來樣式；shirt+ab前後、空白換行 -->
+    <pre>
+        <code>
+            const clickme = document.getElementById('clickme');
+        clickme.onclick = function () {
+            alert('Hello World!');
+        }
+
+        </code>
+    </pre>
+
+
+    <hr>
+
+    <h2>表格 table(完整結構)</h2>
+    <!-- cellspacing 儲存格與儲存格之間的距離 -->
+    <!-- cellpadding 儲存格裡內容的內距，內容與框之間的留白距離-->
+    <table border="1" width="600" cellspacing="10" cellpadding="10">
+        <!-- 表格標題 -->
+        <caption>前端班級成績表</caption>
+        <thead></thead>
+        <!-- 一列三欄 -->
+        <tr>
+            <th>姓名</th>
+            <th>網頁排版</th>
+            <th>程式設計</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>大明</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>中明</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>小明</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>共3人</td>
+                <td>平均:100</td>
+                <td>平均:100</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+
+
+    <h2>表格合併</h2>
+    <p>colsapn(欄合併):左吃右，右消失，colsapn=吃幾個+自己</p>
+    <p>rowspan(列合併):上吃下，下消失，rowspan=吃幾個+自己</p>
+    <!-- 建立一個6x6的表格，寬度600，邊框1 -->
+    <!-- align置中 -->+
+    <table border="1" width="600">
+        <tr align="center">
+            <td colspan="4">1</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td>2</td>
+            <td rowspan="5">3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td>2</td>
+            <td>4</td>
+            <td colspan="2">5</td>
+        </tr>
+        <tr align="center">
+            <td rowspan="3">1</td>
+            <td>2</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr align="center">
+            <td>2</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr align="center">
+            <td>2</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+
+
+    </table>
+
+    <hr>
+    <!-- emmet cheat sheet -->
+    <!-- method有get、post -->
+    <!-- enctype="multipart/form-data"傳檔案必要的屬性 -->
+    <h2>常用表單</h2>
+    <form method="post" enctype="multipart/form-data">
+        <!-- 瀏覽器寬度的50% -->
+        <!-- 白色建議用css製作 -->
+        <table width="50%" border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <td width="100">帳號:</td>
+                <!-- type:text可以輸入文字的地方 
+                    size寬度 maxlength最大字元數
+                    placeholder 佔位文字 提示使用者操作 點下去後文字會消失 
+                    name 資訊用來辨別表單的名稱，在傳送資料給後端時，後端會用這個名稱來取得資料-->
+                <td><input type="text" size="30" maxlength="10" placeholder="請輸入帳號" name="id"></td>
+            </tr>
+            <tr>
+                <td>密碼:</td>
+                <td><input type="password" placeholder="請輸入密碼" name="pw"></td>
+            </tr>
+            <tr>
+                <td>性別:</td>
+                <td>
+                    <!-- radio單選，name需相同，表示同一組單選，checked為預設勾選 -->
+                    <input type="radio" value="男" name="gender">男
+                    <input type="radio" value="女" name="gender" checked>女
+                </td>
+
+            </tr>
+            <tr>
+                <td>興趣</td>
+                <td>
+                    <!-- checkbox 複選，name需相同，表示同一祖複選，checked為預設勾選 -->
+                    <input type="checkbox" value="拍照" name="like">拍照
+                    <input type="checkbox" value="看書" name="like" checked>看書
+                    <input type="checkbox" value="程式" name="like">程式
+                    <input type="checkbox" value="睡覺" name="like">睡覺
+                    <input type="checkbox" value="逛街" name="like">逛街
+                </td>
+            </tr>
+            <tr>
+                <td>出生地</td>
+                <td>
+                    <select>
+                        <option value="台北">台北</option>
+                        <option value="桃園">桃園</option>
+                        <option value="台中">台中</option>
+                        <option value="台南">台南</option>
+                        <option value="高雄">高雄</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>上傳檔案:</td>
+                <td><input type="file" name="up_file"></td>
+            </tr>
+            <tr>
+                <td>留言訊息:</td>
+                <td>
+                    <!-- rows顯示五列 -->
+                    <textarea name="msg" cols="30" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="送出">
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+
+    <p id="bottom">網頁底部的位置</p>
+    <a href="#">回頂端</a>
+
+
+    <hr>
+    <!-- 特殊字元 -->
+    <h2>HTML 跳脫字元(特殊字元)</h2>
+    <p>
+        &lt;h1&gt; 這是標題 &lt;/h1&gt;
+    </p>
+    &phone; <br>
+    &dollar;100 <br>
+    &star;
+
+
+    <!-- <button id="clickme">按鈕</button> -->
+    <!-- 外部js檔案，目前沒作用，知道就好 -->
+    <script src="./js/example.js"></script>
+    <!-- 該網頁使用的js -->
+    <script>
+        const clickme = document.getElementById('clickme');
+        clickme.onclick = function () {
+            alert('Hello World!');
+        }
+    </script>
+</body>
+
+</html>
