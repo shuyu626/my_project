@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按鈕" id="btn">
+    <input type="text" name="" id="input-text">
+    <input type="button" value="解除" id="btn-off">
+    <p id="text"></p>
+
+    <input type="button" value="新增" id="btn-add">
+    <div id="target">
+        <p>123456789</p>
+    </div>
+    <p id="move">AAAAA</p>
+
+    <div id="btns">
+        <input type="button" value="按鈕" class="btn">
+        <input type="button" value="按鈕" class="btn">
+        <input type="button" value="按鈕" class="btn">
+    </div>
+
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // .click(function) 綁定事件 //不是每種事件都有寫成這種語法
+        // .click() 觸發事件 = addEventListener('click')
+        // .on('事件名稱', function) 綁定事件 = addEventListener //最保險
+        // .one('事件名稱', function) 綁定事件，只執行一次
+        // .off('事件名稱', function) 解除綁定 = removeEventListener
+        $('#btn').click(function (event) {
+            console.log(event.offsetX)
+            // this 代表觸發事件的東西
+            // 箭頭函式沒有this，盡量寫一般的function
+            // .val() 輸入欄位的 value 
+            // () 有東西就改，沒有就取值
+            $(this).val('點過了')
+        })
+
+
+        function test() {
+            console.log(123)
+        }
+        $('#input-text').on('input', function () {
+            $('#text').text($(this).val()) //this為事件發生的對象
+        }) // 把 #text 的文字變成 #input-text 對象的值
+        $('#input-text').on('input', test) //  #input-text輸入值的時候，console.log會出現function test
+
+        $('#btn-off').on('click', function () { //按下 #btn-off 按鈕後，移除 test的function
+            // $('#input-text').off('input')
+            $('#input-text').off('input', test)
+        })
+
+        $('#btn-add').click(function () {
+
+        })
+        $('#btn-add').click(function () { //點擊的時候執行
+            // .append() 裡面的後面
+            // .prepend() 裡面的前面
+            // .insertAfter() 同一層後面
+            // .insertBefore() 同一層前面
+            // 後面放 html 就會幫你新增，若放現有的東西就會幫你移動
+            $('#target').append('<p>append</p>')
+            $('#target').prepend('<p>prepend</p>')
+            $('#target').prepend($('#move')) // 已存在故移動位置
+            $('<p>insertAfter</p>').insertAfter('#target') // $(A).insertAfter(B) 把A放在B後面
+            $('<p>insertBefore</p>').insertBefore('#target')// $(A).insertBefore(B) 把A放在B前面
+        })
+
+        $('.btn').click(function () {
+            $('#btns').append(`<input type="button" value="按鈕" class="btn">`)
+        })
+        // 點擊按鈕會在後面新增按鈕
+        // 只會綁到頁面載入時的三個按鈕，所以後來新增的按鈕沒有點擊事件
+        // 解決此問題的方法，以下: 
+        $('#btns').on('click', '.btn', function () { //當點到，裡面的btn才執行function // on(後面是過濾) 
+            $('#btns').append(`<input type="button" value="按鈕" class="btn">`)
+        }) //當點擊 #btns 元素中的任何一個具有 .btn 元素時，會向 #btns 元素中添加一個新的按鈕
+
+        function add() {
+            const newBtn = $(`<input type="button" value="按鈕" class="btn">`) //新按鈕
+            $(newBtn).click(add) //點擊的時候新增按鈕
+            $('#btns').append(newBtn)// newBtn 元素添加到 #btns 元素的後面。
+        }
+        $('.btn').click(add)
+
+        // Context Menu，右鍵選單
+        // return false 不執行事件  =  preventDefault 不執行事件
+        $(document).on('contextmenu', function () {
+            e.preventDefault() //取消右鍵功能 與下相同
+            return false //取消右鍵功能
+        })
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

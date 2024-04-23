@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="input-text">
+        <input type="button" value="新增" id="btn">
+        <ul id="a"></ul>
+    </form>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        $('#btn').on('click', function () {
+            var text = $('#input-text').val() //取得輸入的值
+            $('#a').append(`<li>${text} <input type="button" value="X" class="x"></li>`) //把新增li放到ul後面
+        })
+
+
+
+        // 點擊事件綁在外層
+        $('#a').on('click', '.x', function () { // on第二個參數是過濾，確認是不是ul(#a)裡的.x刪除按鈕
+            // this是點到的按鈕
+            // $(this).parent() 是按鈕的上一層(即 li)
+            // 移除
+            $(this).parent().remove()
+        })
+
+
+
+
+        // 錯誤版本
+        // $('#btn').on('click', function () {
+        //     $('#a').append('<li ></li> <input type="button" value="X">')
+        //     $('li').text($('#input-text').val()) //一次改全部的值
+        // })
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
