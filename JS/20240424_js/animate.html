@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="變小" id="btn1">
+    <input type="button" value="往右" id="btn2">
+    <input type="button" value="往右往下" id="btn3">
+    <input type="button" value="停止" id="btn4">
+    <input type="button" value="淡出" id="btn5">
+    <input type="button" value="淡入" id="btn6">
+    <input type="button" value="半透明" id="btn7">
+    <input type="button" value="淡入淡出" id="btn8">
+    <input type="button" value="滑入" id="btn9">
+    <input type="button" value="滑出" id="btn10">
+    <input type="button" value="滑入滑出" id="btn11">
+    <hr>
+    <img src="https://github.com/wdaweb.png" id="img">
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $('#btn1').click(function () {
+            // .animate({ 樣式 : 值 }, '動畫時間', 'linear', 動畫播完的 function) 原生JQ只能修改參數是數字的，不能修改顏色
+            // 動畫時間預設 400 ms，可填 ms 或是 fast(200ms) slow(600 ms)
+            // linear 不填預設是 ease
+            $('#img').animate({
+                width: '100px',
+                height: '100px'
+            }, function () {
+                console.log('變小了')
+            })
+        })
+
+        $('#btn2').click(function () {
+            $('#img').animate({
+                left: '+=50px'
+            }, 2000, function () {
+                console.log('往右了')
+            })
+        })
+
+        $('#btn3').click(function () {
+            $('#img')
+                .animate({
+                    left: '+=50px'
+                }, 2000, function () {
+                    console.log('往右了')
+                })
+                .animate({
+                    top: '+=50px'
+                }, 2000, 'linear', function () {
+                    console.log('往下了')
+                })
+        })
+
+        $('#btn4').click(function () {
+            // .stop(是否停止之後的動畫，是否跳到目前動畫結束)
+            // 如果第二個參數是 true，第一個就必須是 true
+            // 預設都是 false
+            $('#img').stop(true, false) // 原地停下
+            $('#img').stop(true, true) // 跳到目前動畫的結尾
+            $('#img').stop(false, true) // 直接開始播下個動畫
+        })
+
+        $('#btn5').click(function () {
+            // .fadeOut(時間長度, 'linear', function) 不放值的話就是預設值
+            // 淡出後會自動變成 display:none 可能導致排版
+            $('#img').fadeOut()
+        })
+
+        $('#btn6').click(function () {
+            // .fadeIn(時間長度, 'linear', function) 不放值的話就是預設值
+            $('#img').fadeIn()
+        })
+
+        $('#btn7').click(function () {
+            // .fadeTo(時間長度, 不透明度, 'linear', function)
+            // 長度, 不透明度必填
+            // 淡出前是透明度多少淡入後就是多少
+            // 不透明度是0的話不會變 display:none
+            $('#img').fadeTo(1000, 0.5)
+        })
+
+        $('#btn8').click(function () {
+            // .fadeToggle(時間長度, 'linear', function)
+            $('#img').fadeToggle()
+        })
+
+        // 切換東西的高度
+        // 沒設定會等比例縮放
+        $('#btn9').click(function () {
+            // .slideDown(時間長度,  'linear', function)
+            $('#img').slideDown(2000)
+        })
+        $('#btn10').click(function () {
+            // .slideUp(時間長度,  'linear', function)
+            $('#img').slideUp(2000)
+        })
+        $('#btn11').click(function () {
+            // .slideToggle(時間長度,  'linear', function)
+            $('#img').slideToggle(2000)
+        })
+    </script>
+
+</body>
+
+</html>

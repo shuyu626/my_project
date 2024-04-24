@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #imgs {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        #imgs>img {
+            margin-top: 100px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="imgs">
+        <img src="https://picsum.photos/200/?random=1">
+        <img src="https://picsum.photos/200/?random=2">
+        <img src="https://picsum.photos/200/?random=3">
+        <img src="https://picsum.photos/200/?random=4">
+        <img src="https://picsum.photos/200/?random=5">
+    </div>
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // .mouseenter() .on('mouseenter')  滑鼠進入
+        // .mouseout() .on('mouseout') 滑鼠移開
+        // .hover 把兩種寫在一起
+        // 第一個function 是滑鼠移入，第二個function 是滑鼠移出
+        $('#imgs >img').hover(function () {
+            $(this).stop().animate({ marginTop: 0 }) //移入的時候圖片往上跑
+            $(this).prev().stop().animate({ marginTop: 50 })// 上張往上到一半
+            $(this).next().stop().animate({ marginTop: 50 })// 下張往上到一半
+        }, function () {
+            $(this).stop().animate({ marginTop: 100 }) //移出的時候圖片往下跑
+            $(this).prev().stop().animate({ marginTop: 100 })// 上張往下回原位
+            $(this).next().stop().animate({ marginTop: 100 })// 下張往下回原位
+        })
+    </script>
+</body>
+
+</html>

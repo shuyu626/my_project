@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #carousel {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            /* 超出範圍的都隱藏 */
+            overflow: hidden;
+        }
+
+        #imgs {
+            /* 放所有圖片 */
+            position: absolute;
+            top: 0;
+            /* -500*n 換下張 */
+            left: 0;
+            width: 2500px;
+        }
+
+        #imgs>img {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 輪播 -->
+    <div id="carousel">
+        <div id="imgs">
+            <img src="https://picsum.photos/500/?random=1">
+            <img src="https://picsum.photos/500/?random=2">
+            <img src="https://picsum.photos/500/?random=3">
+            <img src="https://picsum.photos/500/?random=4">
+            <img src="https://picsum.photos/500/?random=5">
+        </div>
+    </div>
+    <input type="button" value="&lt" id="btn-prev">
+    <input type="button" value="&gt" id="btn-next">
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let now = 0
+        $('#btn-next').click(function () {
+            if (now + 1 <= 4) { //五張圖片是索引0-4，故在+1後應該要在[4]以內，代表有圖片，有的話才去+1
+                now++ //翻頁+1 透過索引來判斷是第幾張
+                $('#imgs')
+                    .stop(true, true)
+                    .animate({ left: now * 500 * -1 - 25 }) //回彈的小效果
+                    .animate({ left: now * 500 * -1 })
+            }
+        })
+        $('#btn-prev').click(function () {
+            if (now - 1 >= 0) { //索引0-4，故往前翻頁不能小於0
+                now-- //每按一次按鈕就往前翻一頁(即索引-1)
+                $('#imgs')
+                    .stop(true, true)
+                    .animate({ left: now * 500 * -1 + 25 })
+                    .animate({ left: now * 500 * -1 })
+            }
+        })
+    </script>
+</body>
+
+</html>
