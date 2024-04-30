@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 遊戲範圍 */
+        #game {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            background: black;
+            position: relative;
+            /* 超出的隱藏 */
+            overflow: hidden;
+            /* 滑鼠從左上角開始，不會對在準心上，要加上偏移(50 50)；auto自動判斷變成圖片 */
+            cursor: url(./cursor.png) 50 50, auto;
+        }
+
+        #game>img {
+            height: 100px;
+            position: absolute;
+            /* 不能反白 及 拖拉 */
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .blood {
+            /* 忽略點擊事件 */
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="開始" id="btn-start">
+    <br>
+    <p>分數: <span id="text-score">0</span></p>
+    <p>剩餘: <span id="text-time">0</span></p>
+    <p>最高分玩家: <span id="text-highscore-player">-</span></p>
+    <p>最高分分數: <span id="text-highscore-score">0</span></p>
+    <div id="game"></div>
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
+    <script>
+        // 分數
+        let score = 0
+        // 剩餘秒數
+        let time = 0
+        // 計時器
+        let timer = 0
+        // setTimeout 得到的是數字所以設0
+
+        // 紀錄最高分
+        const highscore = {
+            name: '-',  // 預設沒有名字
+            score: 0    // 預設 0 分
+        }
+
+        if (localStorage.fishHighScore) {
+            const data = JSON.parse(localStorage.fishHighScore) // JSON.parse把文字轉回物件
+            highscore.name = data.name
+            highscore.score = data.score
+            $('#text-highscore-player').text(highscore.name)
+            $('#text-highscore-score').text(highscore.score)
+        }
+
+        // 開始按鈕點擊的時候執行
+        $('#btn-start').click(function () {
+            //停用開始按鈕
+            $(this).attr('disabled', true)
+            // 重設各個參數(分數 及 時間歸零)
+            score = 0
+            $('#text-score').text(score)
+            time = 5
+            $('#text-time').text(time)
+            // 下面 setInterval 的 function 的this 會指向到 window 
+            // 所以把點擊事件的 this 放在變數裡
+            const _this = this // _this 為習慣寫法
+
+            // 開始遊戲
+            timer = setInterval(function () {
+                // 倒數
+                time--
+                $('#text-time').text(time)
+                // 隨機數字
+                const random = Math.ceil(Math.random() * 10) // ceil無條件進位 random(0-10不含10)
+                // 隨機數字 > 5，且魚的數量 < 5 才出現
+                if (random > 5 && $('.fish').length < 5) {
+                    // 隨機位置
+                    const top = Math.round(Math.random() * 100) + '%'
+                    const left = Math.round(Math.random() * 100) + '%'
+                    // 產生魚
+                    const fish = $(`<img src="./kodai_sacabambaspis.png" class="fish" style="top:${top};left:${left}">`)// 變成 JQ 的 HTML元素
+                    $('#game').append(fish)
+                    // 非正確寫法:
+                    // const top2 = Math.round(Math.random() * 100) + '%'
+                    // const left2 = Math.round(Math.random() * 100) + '%'
+                    // fish.animate({top:top2,left:left2},2000) // 移動到另一個隨機位置，但只會移動兩次，故寫成下面function moveFish(fish)讓他可以一直移動
+                    moveFish(fish)
+                }
+                if (time === 0) {
+                    clearInterval(timer)
+                    // 重新啟用開始按鈕
+
+                    // 非正確寫法:
+                    // $(this).attr('disabled', false)  this會無效，因為是往上找是哪個function 這裡的this是指到window， ( 往上找到第 84 行的 function 非 71 行)
+                    // console.log(this)  //window
+                    console.log(_this)
+                    $(_this).attr('disabled', false) // 避免上述問題，在 60 行先把外層變數存起來使用
+
+                    // 清空遊戲區域
+                    $('#game').empty()
+                    // 最高分
+                    if (score > highscore.score) {
+                        const name = prompt('最高分，請輸入名字') || '-' //詢問使用者名稱，沒寫用'-'代替
+                        highscore.name = name
+                        highscore.score = score
+
+                        $('#text-highscore-player').text(highscore.name)
+                        $('#text-highscore-score').text(highscore.score)
+
+                        //localStorage.資料名稱 = 文字
+                        // localStorage.setItem(資料名稱,文字)
+                        //localStorage 只能存文字 ，不能直接等於物件的變數，所以要轉為文字
+                        localStorage.fishHighScore = JSON.stringify(highscore)
+
+                    }
+                }
+            }, 1000) //每一秒(1000ms)跑一次function
+        })
+
+        $('#game').on('click', '.fish', function () {
+            $(this).stop()
+            // 魚替換成血
+            $(this).attr('src', './blood.png')
+            // 移除掉魚，變成血
+            $(this).removeClass('fish').addClass('blood')
+            score++
+            $('#text-score').text(score)
+        })
+
+        function moveFish(fish) {
+            // 魚的新位置
+            const top = Math.round(Math.random() * 100) + '%'
+            const left = Math.round(Math.random() * 100) + '%'
+            // 魚移動到新位置，持續2s，動畫完再給新位置讓魚移動
+            fish.animate({ top, left }, 2000, function () {
+                moveFish(fish) //讓魚不斷移動
+            })
+        }
+    </script>
+
+</body>
+
+</html>
