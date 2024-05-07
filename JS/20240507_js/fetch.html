@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 第一個參數放請求網址 第二個放請求方式
+        fetch('https://kktix.com/events.json', { method: 'GET' })
+            .then(response => {
+                // Response 物件，沒有辦法直接取的內容
+                console.log(response)
+                // 知道回來的格式是文字就用text，json格式就用json
+                return response.json()
+            })
+            .then(json => {
+                console.log(json)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+        const main = async () => {
+            try {
+                const response = await fetch('http://kktix.com/events.json', { method: 'GET' })
+                const json = await response.json()
+                console.log(json.title)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        main()
+
+
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify({
+                title: 'aaa',
+                body: 'bbb'
+            }),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(response => {
+                // Response 物件，沒有辦法直接取的內容
+                console.log(response)
+                // 知道回來的格式是文字就用text，json格式就用json
+                return response.json()
+            })
+            .then(json => {
+                console.log(json)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    </script>
+</body>
+
+</html>

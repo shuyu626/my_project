@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            text-align: center;
+        }
+
+        table td {
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table">
+        <tr>
+            <td>tilte</td>
+            <td>summary</td>
+            <td>content</td>
+            <td>author</td>
+            <td>published</td>
+        </tr>
+    </table>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // 老師版
+        const table = document.getElementById('table')
+        const main = async () => {
+            try {
+                const { data } = await axios.get('https://kktix.com/events.json')
+                for (const event of data.entry) {
+                    const html = `<tr>
+                        <td>${event.title}</td>
+                        <td>${event.summary}</td>
+                        <td>${event.content}</td>
+                        <td>
+                            <a href="${event.author.uri}" target="_blank">${event.author.name}</a>
+                        </td>
+                        <td>${new Date(event.published).toLocaleString()}</td>
+                    </tr>`
+                    table.insertAdjacentHTML('beforeend', html)
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        main()
+
+
+
+
+
+
+        // 錯誤版
+        // const table = document.getElementById('table')
+        // const main = async () => {
+        //     try {
+        //         const response = await axios.get('https://kktix.com/events.json')
+        //         for (let i = 0; i < response.data.entry[i].length; i++) {
+        //             const title = response.data.entry[i].title
+        //             const summary = response.data.entry[i].summary
+        //             const content = response.data.entry[i].content
+        //             const author = response.data.entry[i].author.name
+        //             const published = response.data.entry[i].pulished
+        //         }
+        //         table.insertAdjacentHTML('beforeend', `
+        //         <tr>
+        //             <td>${title}</td>
+        //             <td>${summary}</td>
+        //             <td>${content}</td>
+        //             <td>${author}</td>
+        //             <td>${published}</td>
+        //         </tr>
+        //     `);
+        //     }
+        //     catch (error) {
+        //         console.log(error)
+        //     }
+        // }
+        // main()
+
+    </script>
+</body>
+
+</html>

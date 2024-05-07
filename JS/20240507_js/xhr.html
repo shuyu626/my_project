@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 瀏覽器內建的語法
+        const xhr = new XMLHttpRequest()
+        xhr.open('get', 'https://kktix.com/events.json')
+        // 收到回覆時
+        // xhr.addEventListener
+        xhr.onload = () => {
+            console.log(xhr.responseText)
+        }
+        // 錯誤時
+        xhr.onerror = (error) => {
+            console.log(error)
+        }
+        // 送出
+        xhr.send()
+
+        const xhrPost = new XMLHttpRequest()
+        xhrPost.open('post', 'https://jsonplaceholder.typicode.com/posts')
+        xhrPost.setRequestHeader('content-type', 'application/json') // 設定傳出去的資料型態
+        xhrPost.onload = () => {
+            console.log(xhrPost.responseText)
+            const json = JSON.parse(xhrPost.responseText)
+            console.log(json.title)
+        }
+        xhrPost.onerror = (error) => {
+            console.log(error)
+        }
+        xhrPost.send(JSON.stringify({
+            title: 'aaa',
+            body: 'bbb'
+            // aaa:111,
+            // bbb:222  錯誤
+        }))
+
+        // 可以在 F12 Network 的 post > Headers Payload Preview Response看到
+    </script>
+</body>
+
+</html>

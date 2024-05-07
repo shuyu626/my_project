@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        try {
+            // 發生錯誤直接跳到catch
+            alertt('123')
+            // 上面錯誤跳到catch，這行不會執行
+            console.log('abc')
+        } catch (error) {
+            // 錯誤的物件
+            console.log(error)
+            // 錯誤的名稱
+            console.log(error.name)
+            // 錯誤的訊息
+            console.log(error.message)
+        } finally {
+
+        }
+        console.log('abc')
+    </script>
+</body>
+
+</html>
