@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(243, 243, 243);
+        }
+
+        #container {
+            display: flex;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1100px;
+            height: 500px;
+            color: white;
+            font-family: "微軟正黑體";
+
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            width: 550px;
+            height: 250px;
+            padding: 2rem;
+            border-radius: 10px;
+
+            flex-grow: 1;
+        }
+
+
+        .box1 {
+            background: #0a021b;
+            margin: 1rem;
+        }
+
+        .box2 {
+            background: #f5f5f5;
+            color: black;
+            border: 1px solid #ddd;
+            margin: 0.5rem;
+        }
+
+        #nav {
+            width: 100vw;
+            height: 100px;
+            /* background: lightgoldenrodyellow; */
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background: white;
+        }
+
+        #nav button {
+            width: 100px;
+            padding: 15px;
+            margin: 5px;
+            border: none;
+            color: rgb(57, 87, 255);
+            font-size: 20px;
+            border-radius: 10px;
+            background: white;
+        }
+
+        #nav button:hover {
+            background: rgb(57, 87, 255);
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="nav">
+        <p>Simple header</p>
+        <button>Home</button>
+        <button>Features</button>
+        <button>Pricing</button>
+        <button>FAQs</button>
+        <button>About</button>
+    </div>
+
+    <div id="container">
+        <div class="content box1">
+            <h1>Change the background</h1>
+            <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
+            <button>Example button</button>
+        </div>
+        <div class="content box2">
+            <h1>Add borders</h1>
+            <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+            <button>Example button</button>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
