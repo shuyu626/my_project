@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <style>
+        .box {
+            width: 800px;
+            height: 300px;
+        }
+
+        .flex-item {
+            width: 200px;
+        }
+
+        .flex-1 {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>flex</h1>
+        <div class="box d-flex flex-row justify-content-between align-items-center border">
+            <div class="bg-primary">item01</div>
+            <div class="bg-success">item02</div>
+            <div class="bg-info">item03</div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>flex-fill</h1>
+        <p>flex: 1 1 auto</p>
+        <p>伸展係數 1 =>可以將剩餘空間平均分配</p>
+        <p>收縮係數 1 => 不會爆版</p>
+        <p>尺寸係數 auto => 當內容寬度超過分配的剩餘空間時，會以內容的寬度為主</p>
+        <p>結論: .flex-fill 並不是完全的欄位均分</p>
+        <div class="d-flex bd-highlight">
+            <div class="p-2 flex-fill bg-danger">Flex item with a lot of content</div>
+            <div class="p-2 flex-fill bg-success">Flex item</div>
+            <div class="p-2 flex-fill bg-info">Flex item</div>
+        </div>
+    </div>
+
+    <h1>flex-grow</h1>
+    <p>flex: 1 1 auto</p>
+    <p>伸展係數 1 =>可以將剩餘空間平均分配</p>
+    <p>收縮係數 1 => 不會爆版</p>
+    <p>尺寸係數 auto => 寬度無效，內容也無法影響欄位寬度</p>
+    <p>結論:與上方 flex-fill 是一樣的</p>
+    <div class="d-flex">
+        <div class="p-2 flex-grow bg-danger">Flex item with a lot of content Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit sed delectus iusto quae cum quis nulla amet suscipit. Vitae, qui.</div>
+
+        <div class="p-2 flex-grow bg-success">Flex item</div>
+        <div class="p-2 flex-grow bg-info">Flex item</div>
+    </div>
+
+    <h1>.flex-1(自創一個)</h1>
+    <p>伸展係數 1 =>可以將剩餘空間平均分配</p>
+    <p>收縮係數 1 => 不會爆版</p>
+    <p>尺寸係數 0 => 寬度無效，內容也無法影響欄位寬度</p>
+    <p>結論: 真正的均分欄位空間</p>
+    <div class="d-flex">
+        <div class="p-2 flex-1 bg-danger">Flex item with a lot of content Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit sed delectus iusto quae cum quis nulla amet suscipit. Vitae, qui.</div>
+        <div class="p-2 flex-1 bg-success">Flex item</div>
+        <div class="p-2 flex-1 bg-info">Flex item</div>
+    </div>
+
+
+    <div class="container">
+        <h1>align-items align-content的差異</h1>
+        <p>情境: flex-direction: row，flex-item 沒有高度</p>
+
+        <h1>align-item</h1>
+        <p>使用 start、center、end 對齊次軸，每列之間會留下空間</p>
+        <p>align-item 沒有 space-xxxxx 系列的屬性值</p>
+        <div class="box border d-flex align-items-start flex-wrap">
+            <div class="flex-item bg-primary">item01</div>
+            <div class="flex-item bg-success">item02</div>
+            <div class="flex-item bg-info">item03</div>
+            <div class="flex-item bg-danger">item04</div>
+            <div class="flex-item bg-primary">item01</div>
+            <div class="flex-item bg-success">item02</div>
+            <div class="flex-item bg-info">item03</div>
+            <div class="flex-item bg-danger">item04</div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>align-content</h1>
+        <p>使用start、center、end 對齊次軸、每列會併合一起對齊</p>
+        <p>可以與 justify-content 一樣，使用 space-xxxxx 系列分配空間</p>
+        <div class="box border d-flex align-content-start flex-wrap">
+            <div class="flex-item bg-primary">item01</div>
+            <div class="flex-item bg-success">item02</div>
+            <div class="flex-item bg-info">item03</div>
+            <div class="flex-item bg-danger">item04</div>
+            <div class="flex-item bg-primary">item01</div>
+            <div class="flex-item bg-success">item02</div>
+            <div class="flex-item bg-info">item03</div>
+            <div class="flex-item bg-danger">item04</div>
+        </div>
+    </div>
+
+    <br>
+
+
+    <div class="container">
+        <h1>在彈性盒裡面(彈性項目)，使用 margin:auto 水平垂直居中</h1>
+        <div class="d-flex border text-center" style="height: 300px;">
+            <div class="m-auto">
+                <h1>lorem</h1>
+                <p>Lorem ipsum dolor sit amet consectetur</p>
+                <button class="btn btn-warning">button</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
