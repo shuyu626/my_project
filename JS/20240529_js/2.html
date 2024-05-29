@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text-red {
+            color: red;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 綁定標籤屬性 ，表單、style、class不行-->
+        <img v-bind:src="img" height="100">
+        <img :src="img" height="100">
+        <a href="link.url">{{link.text}}</a>
+
+        <!-- 綁定 style ，綁定一個物件，一定要給他一個大括號-->
+        <p :style="textStyle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, pariatur.</p>
+        <p :style="{
+            color:textColor,
+            textAlign,
+            fontStyle: num===10?'italic':'normal' // 通常不會這樣寫，會有效能問題
+        }
+        ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, pariatur.</p>
+
+        <!-- 綁定class ，寫法分陣列或物件-->
+        <p :class="textClassArray">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, ducimus.</p>
+        <p :class="textClassObj">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, distinctio.</p>
+
+    </div>
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js integrity="sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+
+
+        Vue.createApp({
+            data() {
+                return {
+                    img: 'https://github.com/vuejs.png',
+                    link: {
+                        url: 'https://x.com',
+                        text: 'Twitter'
+                    },
+                    textStyle: {
+                        color: 'lightblue',
+                        textAlign: 'center',
+                        'background-color': 'gray'
+                    },
+                    textColor: 'pink',
+                    textAlign: 'right',
+                    textClassArray: ['text-red', 'text-center'],
+                    textClassObj: { // true才會套用
+                        'text-red': true,
+                        'text-ceenter': false
+                    }
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

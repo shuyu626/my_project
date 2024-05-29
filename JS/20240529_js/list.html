@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        製作一個購物清單
+
+        兩個字以上才能新增
+        新增欄位邊框小於兩個字時是紅色，成功是藍色，空白是黑色
+        已完成打勾
+        可以保存資料到 localStorage
+        搜尋欄
+    -->
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 點submit執行function -->
+        <form @submit.prevent="addItem">
+            <input type="text" v-model="input" :style="{border:inputBorder}">
+            <input type="submit" value="新增">
+        </form>
+        <hr>
+
+        <!-- 搜尋欄 -->
+        <input type="text" v-model="search">
+
+        <hr>
+        <ul>
+            <li v-for="(item,i) in filteredItems">
+                <!-- 以下兩種意思一樣 -->
+                <!-- 1. 當我去打勾的時候狀態倒過來，綁定checkbox打勾的狀態是不是true -->
+                <!-- <input type="checkbox" @input="item.done =!item.done" :checked="item.done"> -->
+                <!-- 2. checkbox 預設有勾是true 沒勾是false -->
+                <input type="checkbox" v-model="item.done">
+                <!-- 如果已完成，文字加上刪除線 -->
+                <del v-if="item.done">{{item.text}}</del>
+                <!-- 如果未完成就只有文字 -->
+                <span v-else>{{item.text}}</span>
+                <!-- x按鈕，刪除索引i，迴圈要加入索引值 -->
+                <!-- <input type="button" value="x" @click="delItem(i)"> -->
+                <input type="button" value="x" @click="delItem(item.id)">
+
+            </li>
+        </ul>
+    </div>
+
+
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js integrity="sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    items: [],
+                    input: '',
+                    search: '',
+                    id: 1
+                }
+            },
+            // 根據現有的東西去重新計算，產生一個新的資料
+            computed: {
+                // 邊框小於兩個字時是紅色，成功是藍色，空白是黑色
+                inputBorder() {
+                    if (this.input.length === 0) return '5px solid black'
+                    else if (this.input.length < 2) return '5px solid red'
+                    else return '5px solid green'
+                },
+                // 搜尋欄
+                filteredItems() {
+                    return this.items.filter(item => {
+                        return item.text.includes(this.search) // 把return true的留下來，this指到data
+                    })
+                }
+            },
+            methods: {
+                addItem() {
+                    if (this.input.length < 2) return
+                    //  id: this.id++ 讓每個東西都會有自己的id(過濾前後索引不同的問題)
+                    this.items.push({ done: false, text: this.input, id: this.id++ }) // done:fale預設還沒做
+                    this.input = '' // 清空輸入框
+                },
+                delItem(id) {
+                    // findIndex 讓陣列的每個東西都執行function，參數代表陣列每個值，執行判斷式第一個為true的索引回傳
+                    const i = this.items.findIndex(item => {
+                        return item.id === id
+                    })
+                    // 第 i 個索引開始刪除一個
+                    this.items.splice(i, 1)
+                }
+            },
+            watch: {
+                items: {
+                    // 偵測變更，
+                    handler(newValue, oldValue) {
+                        console.log(newValue, oldValue)
+                        localStorage.vueTodo = JSON.stringify(newValue)
+                    },
+                    // 陣列或物件的深層監聽
+                    deep: true // 設定deep:true 時，newValue 和 oldValue會長一樣，都是 newValue
+                }
+            },
+            // 把紀錄再載回網頁上
+            mounted() {
+                // undifined不能JSON.parse，所以如果 localStorage.vueTodo 沒東西就給一個空陣列
+                const items = JSON.parse(localStorage.vueTodo || '[]')
+                // 從 localStorage 中讀取的項目賦值給 Vue，用於存儲任務列表中的所有項目
+                this.items = items
+                if (items.length > 0) { // 有紀錄的話
+                    // 確保新添加的項目具有唯一的 ID
+                    this.id = this.items[this.items.length - 1].id + 1
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
