@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 用標籤屬性將資料傳入元件 -->
+        <!-- price="1000"資料型態是文字，轉成js寫法前面加:，資料型態變數字 -->
+        <!-- 布林值只要寫名字就好，有寫就是 true，沒寫就是 false -->
+        <input type="button" value="漲價" @click="changePrice">
+        <Card title="Vue" img="https://github.com/vuejs.png" :price="1000" sell></Card>
+        <Card 
+        v-for="product in products"
+        :img="product.img"
+        :title="product.title"
+        :price="product.price"
+        :sell="product.sell"
+        ></Card>
+        <!-- 當資料物件的 key 和元件的 props 名稱相同時，可以使用 v-bind 一次綁定 -->
+        <Card 
+        v-for="product in products"
+        v-bind="product"
+        ></Card>
+    </div>
+
+
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js integrity="sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 在 HTML 中定義 Vue 组件的模板 -->
+    <script type="text/x-template" id="card">
+        <div class="card">
+            <img :src="img" height="100">
+            <h1>{{ title }}</h1>
+            <p>{{ price }}</p>
+            <p v-if="!sell">已下架</p>
+            <input type="button" value="看資訊" @click="info">
+        </div>
+
+    </script>
+    <script>
+        const { reactive,toRef,toRefs } = Vue
+        Vue.createApp({
+            setup() {
+                const products = reactive([
+                    { img: 'https://github.com/twbs.png', title: 'Bootstrap', price: 1000, sell: true },
+                    { img: 'https://github.com/wdaweb.png', title: 'Wdaweb', price: 2000, sell: false }
+                ])
+                const changePrice=()=>{
+                    for(const product of products){
+                        product.price*=2
+                    }
+                }
+                return { products,changePrice }
+            }
+        })
+            // 元件使用 - 或 駝峰命名
+            .component('Card', {
+                template: '#card',
+                // 定義元件接收的資料名稱
+                // 最簡單最快的寫法，是把會用到的名稱都寫出來 ↓
+                // props: ['img', 'title', 'price', 'sell']
+                // 外部 不須寫setup
+                props: {
+                    // 指定型態
+                    // 第一種
+                    sell: Boolean,
+                    // 第二種
+                    price: {
+                        type: Number
+                    },
+                    // 指定必填
+                    img: {
+                        type: String,
+                        // 一定要有
+                        required: true
+                    },
+                    // 指定預設值(沒資料的話)
+                    title: {
+                        type: String,
+                        default() {
+                            return '商品'
+                        },
+                        // 自訂驗證
+                        validator(value) {
+                            return value.length > 2
+                        }
+                    }
+                },
+                // 選填是用 this.props 名
+                // methods:{
+                //     info(){
+                //         選項是用this.props名
+                //         console.log(this.price)
+                //     }
+                // }
+                setup(props){
+                    // 直接解構 props 會造成失去響應性，只能取得舊資料
+                    // const { price }=props
+                    // 需要 toRef 或 toRefs 維持響應性，以下兩種解法:
+                    const { price : priceRefs } = toRefs(props)
+                    const priceRef = toRef(props,'price')
+
+                    const info = () =>{
+                        console.log('props.price',props.price)
+                        // 解構會造成失去響應性
+                        // console.log('price', price)
+                        console.log('priceRefs',priceRefs.value)
+                        console.log('priceRef',priceRef.value)
+                    }
+                    return { info }
+                }
+            })
+            .mount('#app')
+    </script>
+</body>
+
+</html>
