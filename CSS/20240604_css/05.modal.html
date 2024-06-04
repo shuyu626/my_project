@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>互動視窗(modal)</h1>
+        <h2>觸發可以使用 button 或 a 兩種標籤</h2>
+        <ul class="list-group my-3">
+            <li class="list-group-item">使用 data-bs-toggle="modal" 去觸發互動視窗</li>
+            <li class="list-group-item">兩者需要對應 modal 主體的 id</li>
+            <li class="list-group-item">button 要在 data-bs-target 設定 #id</li>
+            <li class="list-group-item">a 要設定 href="id"</li>
+        </ul>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kaifu">
+                    使用 button 觸發 modal
+                </button>
+                <!-- 上下效果相同，注意a的寫法把 id 放在 href 裡-->
+                <a href="#kaifu" class="btn btn-primary" data-bs-toggle="modal">使用 a 觸發 modal</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <!-- 
+        data-bs-backdrop="static" 可鎖定背景，點擊背景時不自動關閉 modal
+    -->
+    <div id="kaifu" class="modal fade" data-bs-backdrop="static">
+        <!-- 
+            調整視窗大小 .modal-sm(300px) .modal-lg(800px) .modal-xl(1140px)，沒寫 500px
+            可將視窗垂直置中 .modal-dialog-centered 
+            文字超過視窗大小時，視窗出現捲動軸 .modal-dialog-scrollable 
+        -->
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">互動視窗</h5>
+                    <!-- data-bs-dismiss="modal" 關閉互動視窗 -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 視窗內容 -->
+                    <p>土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程度認證，地方投資，培養篇文章，暫無圖片上。土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程度認證，地方投資，培養篇文章，暫無圖片上。土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程度認證，地方投資，培養篇文章，暫無圖片上。土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程度認證，地方投資，培養篇文章，暫無圖片上。土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程度認證，地方投資，培養篇文章，暫無圖片上。土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程度認證，地方投資，培養篇文章，暫無圖片上。土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程岡設立程度認證，地方投資，培養篇文章，暫無圖片上。土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程度認證，地方投資，培養篇文章，暫無圖片上。土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程度認證，地方投資，培養篇文章，暫無圖片上。土地討論尷尬擔心斑竹訪問回頭是在動態商機免費，練習提示工程師體育專欄良好文件大小，表達合作反饋報紙笑話隨時不好實現，打算實際上研究桌面都要哥哥，辦理富岡設立程度認證，地方投資，培養篇文章，暫無圖片上。
+
+                    </p>
+                    <div class="row">
+                        <div class="col-6">
+                            <img class="img-fluid w-100 h-100" src="https://picsum.photos/1920/600/?random=10">
+                        </div>
+
+                        <div class="col-6">
+                            <p>
+                                重複它們只好兒童開了，瀏覽次數最後負責你在戀愛一段經過一年幹什麼，預計生產突然一笑她們年輕人夫人細節我對學習責任編輯文化，網頁隱藏未知空調鍵盤沒事有些可愛當前位置工人最重要，訂單操作系統狀態輕易公主寂寞大哥程式，敵人現有寂寞手機鈴聲圖象，總數當然無論戀愛如何領導看不到理論影視我愛狀況思考，烏日一家資源轉變決策，傳說此時保密傳奇防止至少，出台下去隨着管理員有權關係系列都會斑竹國內參考見到顯卡應用，虛擬一步儘快做什麼效率頭銜伺服器你們誘惑情感加油專區一片感到，怎麼會太陽傳統也在差不多屏東教學一個完美第一章十分，多多文本之間每次新手認證歌手絶不一看表示體系一臉成果，你自己房間告訴我選單名字，造成觀。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

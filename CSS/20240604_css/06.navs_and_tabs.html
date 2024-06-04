@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>導覽與頁籤</h1>
+        <div class="row">
+            <div class="col">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- .disabled 禁用連結功能 -->
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <h1>分頁標籤(.nav-tabs)</h1>
+                <p>新增 .nav-tabs 後， .active 就會有作用，表示該項目被選擇</p>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active bg-dark text-white" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- .disabled 禁用連結功能 -->
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <h1>膠囊狀(.nav-pills)</h1>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active bg-dark text-white" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- .disabled 禁用連結功能 -->
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <h1>填充與對齊</h1>
+            <p>.nav-fill 是flex:1 1 auto， .nav-item 會隨著內容寬度變寬，沒有辦法讓 .nav-item 寬度均分</p>
+            <p>.nav-justified 才是等寬均分</p>
+            <div class="col-12">
+                <h1>.nav-fill</h1>
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Much longer nav link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-dark active" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled active">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 mt-3">
+                <h1>.nav-justified</h1>
+                <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active bg-danger" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active bg-info" href="#">Much longer nav link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bg-dark active bg-success" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled active bg-warning">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <h1>使用 JS 切換導覽</h1>
+            <h2> data-bs-toggle="pill"</h2>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#home" type="button">Home</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#profile" type="button">Profile</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#contact" type="button">Contact</button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade show active">很容易這個問題，以後但在發展筆記本變成創作獨特發出免費頻道，文明每頁唱片正常引用關閉寶貝谷歌病毒意大利，公路老婆家電各國內容思考，感興趣也沒當初各地，估計前進金錢，手機鈴聲日本生活人才會在，供應花園。</div>
+                <div id="profile" class="tab-pane fade">女子老公註冊現象認定所說軍事承受戰爭原來對比，無線放在詳細訊息感謝排名又有感情，才是現代化財務求購上午主角體現英文定位相冊，考慮建議實踐緩緩反對語文時候熱門，也有清晰本週滿足用戶名，看來家電對你反對往往所有校長感動電信證據公路時候告訴我，一樣教材查看喜愛。</div>
+                <div id="contact" class="tab-pane fade">運動定位優勢遭遇這種眼裡用來植物一句，站在世界盃就業適應那位知道降低浙江本文社會自由接着欄目不敢，老公吸收語言不想本文名字賓館行情小孩變化錯誤登記開關，臨床當年情感運動恐怖聲音移動對於一眼進來相對工商尋求，版權所有，喜愛依然定位恐怖教師那天我愛，江湖根本。</div>
+            </div>
+
+
+            <h2> data-bs-toggle="tabs"</h2>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home2" type="button">Home</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile2" type="button">Profile</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#contact2" type="button">Contact</button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="home2" class="tab-pane fade show active">很容易這個問題，以後但在發展筆記本變成創作獨特發出免費頻道，文明每頁唱片正常引用關閉寶貝谷歌病毒意大利，公路老婆家電各國內容思考，感興趣也沒當初各地，估計前進金錢，手機鈴聲日本生活人才會在，供應花園。</div>
+                <div id="profile2" class="tab-pane fade">女子老公註冊現象認定所說軍事承受戰爭原來對比，無線放在詳細訊息感謝排名又有感情，才是現代化財務求購上午主角體現英文定位相冊，考慮建議實踐緩緩反對語文時候熱門，也有清晰本週滿足用戶名，看來家電對你反對往往所有校長感動電信證據公路時候告訴我，一樣教材查看喜愛。</div>
+                <div id="contact2" class="tab-pane fade">運動定位優勢遭遇這種眼裡用來植物一句，站在世界盃就業適應那位知道降低浙江本文社會自由接着欄目不敢，老公吸收語言不想本文名字賓館行情小孩變化錯誤登記開關，臨床當年情感運動恐怖聲音移動對於一眼進來相對工商尋求，版權所有，喜愛依然定位恐怖教師那天我愛，江湖根本。</div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <script src="./js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
