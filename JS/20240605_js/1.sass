@@ -1,0 +1,18 @@
+$primary: blue
+$warning: yellow
+$danger: red
+
+#header
+    display: flex
+    align-items: center
+    align-content: center
+
+    #title
+        color: $primary
+
+            // & 指到上一層選擇器
+        &:hover
+            color: $danger
+
+        &>.title-text
+            color: $warning
