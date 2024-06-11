@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <section id="section01">
+        <div class="container">
+            <h1>01. Sass(Scss) 預前處理器</h1>
+            <p>Sass 目的減少 CSS 的重複性工作，需編譯成原生 CSS 才能使用，(瀏覽器看不懂 Sass(Scss))</p>
+            <p>Sass 可以使用變數、迴圈、條件判斷、函式、mixins、嵌套等功能...</p>
+        </div>
+    </section>
+    <section id="section02">
+        <div class="container">
+            <h1>02. 變數</h1>
+            <p>變數用 $ 宣告，大括號裡面是區域變數，最外面是全域變數</p>
+            <p>變數的底線 _ 和連接線 - 是相同的，$bg_dark、$bg-dark 是一樣的變數</p>
+            <p>使用變數可以維持網站的一致性，只需修改變數的值，不用刻意用 ctrl+f 搜尋值來修改</p>
+        </div>
+    </section>
+
+    <section id="section03">
+        <div class="container">
+            <h1>03.流程控制</h1>
+            <h3>@if、@else if、@else</h3>
+            <div class="mybox">我快放暑假了</div>
+
+            <h3>@for 迴圈兩種 through 與 to</h3>
+            <h4>through</h4>
+            <div class="through-1"></div>
+            <div class="through-2"></div>
+            <div class="through-3"></div>
+
+            <h4>to</h4>
+            <div class="to-1"></div>
+            <div class="to-2"></div>
+        </div>
+    </section>
+
+    <section id="section04">
+        <h1>04.嵌套巢狀(nested)</h1>
+        <p>& 可以替換父選擇器</p>
+        <p>不要過度使用嵌套，考慮最少的選擇器，選擇到想要的位置，維持在 3 層內</p>
+        <p>過度嵌套會造成編譯後選擇器過長的問題，不易閱讀，且CSS 容量會較大</p>
+        <ul class="menu">
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+            <li><a href="#">LINK</a></li>
+        </ul>
+    </section>
+
+
+
+    <section id="exercise">
+        <div class="container"></div>
+        <h2>練習:使用巢狀建立三欄結構</h2>
+        <div class="row">
+            <div class="col">
+                <img src="https://picsum.photos/400/300/?random=1">
+                <h2><a href="#">Title Link</a></h2>
+                <p>深深明白，僅僅小遊戲生意有了情形並不是通知估計本月出生可以用衣服不必，第二類別認識對他半年，高中任。</p>
+            </div>
+            <div class="col">
+                <img src="https://picsum.photos/400/300/?random=2">
+                <h2><a href="#">Title Link</a></h2>
+                <p>深深明白，僅僅小遊戲生意有了情形並不是通知估計本月出生可以用衣服不必，第二類別認識對他半年，高中任。</p>
+            </div>
+            <div class="col">
+                <img src="https://picsum.photos/400/300/?random=3">
+                <h2><a href="#">Title Link</a></h2>
+                <p>深深明白，僅僅小遊戲生意有了情形並不是通知估計本月出生可以用衣服不必，第二類別認識對他半年，高中任。</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="section05">
+        <div class="container">
+            <h1>05. extend %</h1>
+            <p>使用 % 來定義名稱，引用時使用 @extend</p>
+            <p>繼承可以定義一組相同樣式，給其他選擇器繼承使用</p>
+            <p>繼承被編譯出去會使用群組選擇器，樣式碼會較少</p>
+            <div id="extend" style="overflow: auto;">
+                <div class="box1"></div>
+                <div class="box2"></div>
+                <div class="box3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section06">
+        <div class="container">
+            <h1>06. 計算</h1>
+            <div class="box4"></div>
+        </div>
+    </section>
+
+    <section id="section07">
+        <div class="container">
+            <h1>07. Function(函式)</h1>
+            <p>@function 與 @mixin 很像，但差異性如下:</p>
+            <p>@function 可以 @return 一個結果，但是無法產生一段 CSS 樣式，@mixin 則可以使用 @include 呼叫一段 CSS 樣式碼</p>
+            <div class="funcbox">HelloWorld!</div>
+        </div>
+
+        <div class="container">
+            <h2>使用函式計算欄為寬度</h2>
+            <div class="row">
+                <div class="col">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, debitis quis voluptatibus, consequatur voluptatum est temporibus officiis exercitationem ad voluptas doloremque repudiandae, odit sunt quas numquam repellat in nemo dolores?</p>
+                </div>
+                <div class="col">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, debitis quis voluptatibus, consequatur voluptatum est temporibus officiis exercitationem ad voluptas doloremque repudiandae, odit sunt quas numquam repellat in nemo dolores?</p>
+                </div>
+                <div class="col">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, debitis quis voluptatibus, consequatur voluptatum est temporibus officiis exercitationem ad voluptas doloremque repudiandae, odit sunt quas numquam repellat in nemo dolores?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section08">
+        <div class="container">
+            <h1>08.Mixins</h1>
+            <p>@mixin 是樣式重複使用的工廠，目的減少樣式重複的動作，很像 @function ，可以使用 @include 呼叫，也可以帶入參數</p>
+
+            <h2>flexbox</h2>
+            <div class="boxflex">YA</div>
+
+            <h2>使用 mixin 建立按鈕</h2>
+            <a class="btn btn-dark" href="#">按鈕</a>
+            <a class="btn btn-primary" href="#">按鈕</a>
+            <a class="btn btn-success" href="#">按鈕</a>
+            <a class="btn btn-danger" href="#">按鈕</a>
+        </div>
+    </section>
+
+
+    <section id="section09">
+        <div class="container">
+            <h1>09. 使用 mixin + @content 設計 RWD</h1>
+            <div class="row">
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+                <div class="col">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint aut facere harum modi rerum tenetur ad, soluta ea vero fugiat ipsam, et odio inventore id perferendis, facilis quibusdam molestias ab!
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
